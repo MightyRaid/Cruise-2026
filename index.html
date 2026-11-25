@@ -41,7 +41,6 @@
       pointer-events: none;
     }
 
-    /* Maritime Header */
     .voyage-header {
       background:
         radial-gradient(circle at 85% 15%, rgba(201, 151, 59, 0.22), transparent 45%),
@@ -104,7 +103,6 @@
       padding: 0 0.75rem;
     }
 
-    /* Deck / Day Tabs */
     .deck-tabs {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -147,7 +145,6 @@
     #dk-4:checked ~ .wrap #panel-4 { display: block; }
     #dk-5:checked ~ .wrap #panel-5 { display: block; }
 
-    /* Logbook Cards */
     .log-card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -214,7 +211,6 @@
       color: #3a4c5e;
     }
 
-    /* 3-Option Selector */
     .choice-stack {
       display: flex;
       flex-direction: column;
@@ -247,6 +243,8 @@
       background: var(--foam);
       padding: 0.12rem 0.45rem;
       border-radius: 5px;
+      margin-left: 0.5rem;
+      flex-shrink: 0;
     }
 
     .choice-detail {
@@ -260,7 +258,6 @@
       color: var(--ink);
     }
 
-    /* Active states for all 3-option slots */
     #d1o1:checked ~ .choice-stack label[for="d1o1"],
     #d1o2:checked ~ .choice-stack label[for="d1o2"],
     #d1o3:checked ~ .choice-stack label[for="d1o3"],
@@ -270,6 +267,9 @@
     #d3o1:checked ~ .choice-stack label[for="d3o1"],
     #d3o2:checked ~ .choice-stack label[for="d3o2"],
     #d3o3:checked ~ .choice-stack label[for="d3o3"],
+    #d3bo1:checked ~ .choice-stack label[for="d3bo1"],
+    #d3bo2:checked ~ .choice-stack label[for="d3bo2"],
+    #d3bo3:checked ~ .choice-stack label[for="d3bo3"],
     #d4o1:checked ~ .choice-stack label[for="d4o1"],
     #d4o2:checked ~ .choice-stack label[for="d4o2"],
     #d4o3:checked ~ .choice-stack label[for="d4o3"] {
@@ -287,6 +287,9 @@
     #d3o1:checked ~ .choice-stack label[for="d3o1"]::after,
     #d3o2:checked ~ .choice-stack label[for="d3o2"]::after,
     #d3o3:checked ~ .choice-stack label[for="d3o3"]::after,
+    #d3bo1:checked ~ .choice-stack label[for="d3bo1"]::after,
+    #d3bo2:checked ~ .choice-stack label[for="d3bo2"]::after,
+    #d3bo3:checked ~ .choice-stack label[for="d3bo3"]::after,
     #d4o1:checked ~ .choice-stack label[for="d4o1"]::after,
     #d4o2:checked ~ .choice-stack label[for="d4o2"]::after,
     #d4o3:checked ~ .choice-stack label[for="d4o3"]::after {
@@ -304,6 +307,9 @@
     #d3o1:checked ~ .detail-d3o1,
     #d3o2:checked ~ .detail-d3o2,
     #d3o3:checked ~ .detail-d3o3,
+    #d3bo1:checked ~ .detail-d3bo1,
+    #d3bo2:checked ~ .detail-d3bo2,
+    #d3bo3:checked ~ .detail-d3bo3,
     #d4o1:checked ~ .detail-d4o1,
     #d4o2:checked ~ .detail-d4o2,
     #d4o3:checked ~ .detail-d4o3 {
@@ -327,6 +333,12 @@
       color: var(--hull);
     }
 
+    .m-tag.cost {
+      background: var(--brass-light);
+      border-color: #e4c788;
+      color: #7c530c;
+    }
+
     .note-box {
       border: 1px solid var(--line);
       border-radius: 10px;
@@ -334,6 +346,8 @@
       background: #fbfcfd;
       margin-bottom: 0.85rem;
     }
+
+    .note-box:last-child { margin-bottom: 0; }
 
     .note-box h3 {
       font-size: 0.95rem;
@@ -347,7 +361,7 @@
       color: #3a4c5e;
     }
 
-    .note-box li { margin-bottom: 0.3rem; }
+    .note-box li { margin-bottom: 0.35rem; }
 
     .parking-callout {
       background: var(--brass-light);
@@ -436,15 +450,24 @@
           </div>
           <div class="choice-detail detail-d1o1">
             <strong>100 AM (6 mins drive to MBCCS):</strong> Sheltered basement parking, lifts throughout, and easy sit-down meals for seniors and young kids (Yayoi, Ramen Keisuke) opening at 11:00 AM.
-            <div class="pill-row"><span class="m-tag">Air-Con &amp; Lifts</span><span class="m-tag">6 Mins to Port</span></div>
+            <div class="pill-row">
+              <span class="m-tag cost">Est. S$18–S$32 / pax + ~$3–S$6 parking</span>
+              <span class="m-tag">Air-Con &amp; Lifts</span>
+            </div>
           </div>
           <div class="choice-detail detail-d1o2">
             <strong>Jurassic Nest FoodHall (6 mins drive at Gardens by the Bay):</strong> Opens at 11:00 AM with animatronic dinosaurs for the kids and hawker/rice dishes for adults in a cooled hall.
-            <div class="pill-row"><span class="m-tag">Kid-Friendly</span><span class="m-tag">Indoor Dining</span></div>
+            <div class="pill-row">
+              <span class="m-tag cost">Est. S$12–S$25 / pax + ~$3–S$6 parking</span>
+              <span class="m-tag">Kid-Friendly</span>
+            </div>
           </div>
           <div class="choice-detail detail-d1o3">
             <strong>Head Straight to MBCCS:</strong> Drop off around 12:25 PM, complete boarding at 1:00 PM, and have lunch at Windjammer Marketplace (Deck 11).
-            <div class="pill-row"><span class="m-tag">No Extra Stop</span></div>
+            <div class="pill-row">
+              <span class="m-tag">Included in Cruise Fare</span>
+              <span class="m-tag">No Extra Stop</span>
+            </div>
           </div>
         </div>
 
@@ -452,7 +475,7 @@
           <div class="time-stamp">12:25 PM – 4:30 PM</div>
           <div class="block-title">Drop-Off, Boarding &amp; Sail Away</div>
           <div class="block-copy">
-            Drop passengers and tagged bags at <strong>MBCCS Level 1 Departure</strong>; park on <strong>Level 3</strong> (S$110 advance package). Complete <strong>eMuster</strong> on the app upon boarding, explore the ship, watch sail-away at <strong>4:00 PM</strong>, and have an early dinner around <strong>5:00–5:30 PM</strong>.
+            Drop passengers and tagged bags at <strong>MBCCS Level 1 Departure</strong>; park on <strong>Level 3</strong> (S$110 advance package). Complete <strong>eMuster</strong> on the app upon boarding, explore the ship, watch sail-away at <strong>4:00 PM</strong>, and have an early dinner around <strong>5:00–5:30 PM</strong> (Main Dining Room &amp; Windjammer are included in your cruise fare; specialty dining costs extra).
           </div>
         </div>
       </div>
@@ -487,15 +510,24 @@
           </div>
           <div class="choice-detail detail-d2o1">
             <strong>George Town Trishaws + Early Dinner:</strong> Hire trishaws from the pier for a low-walking ride past Armenian Street and Clan Jetties, followed by a 5:00 PM dinner at Tek Sen or ChinaHouse and Grab back by 7:00 PM.
-            <div class="pill-row"><span class="m-tag">Low Walking</span><span class="m-tag">Near Pier</span></div>
+            <div class="pill-row">
+              <span class="m-tag cost">Trishaw ~RM 40–50/hr (~S$12–S$16) + Dinner ~RM 35–60/pax (~S$11–S$18)</span>
+              <span class="m-tag">Low Walking</span>
+            </div>
           </div>
           <div class="choice-detail detail-d2o2">
             <strong>Penang Hill Funicular:</strong> Take Grab cars (~25 mins) to Penang Hill Lower Station, ride the train up for cooler air and views, have an early dinner, and return before evening queues build.
-            <div class="pill-row"><span class="m-tag">Hilltop Views</span><span class="m-tag">Train Ride</span></div>
+            <div class="pill-row">
+              <span class="m-tag cost">Funicular ~RM 30–RM 40/adult (~S$9–S$12) + Grab &amp; Dinner</span>
+              <span class="m-tag">Hilltop Views</span>
+            </div>
           </div>
           <div class="choice-detail detail-d2o3">
             <strong>Stay Onboard:</strong> Enjoy lighter crowds at the pools and slides while most guests are ashore, plus a relaxed 5:15 PM Main Dining Room dinner.
-            <div class="pill-row"><span class="m-tag">Fewer Queues</span><span class="m-tag">No Transit</span></div>
+            <div class="pill-row">
+              <span class="m-tag">Included in Cruise Fare</span>
+              <span class="m-tag">Fewer Queues</span>
+            </div>
           </div>
         </div>
       </div>
@@ -522,32 +554,148 @@
           </div>
           <div class="choice-detail detail-d3o1">
             <strong>Kids Club + Top-Deck Thrills:</strong> Drop eligible kids at Adventure Ocean (Aquanauts) while adults try The Blaster, Riptide, or FlowRider.
-            <div class="pill-row"><span class="m-tag">Waterslides</span><span class="m-tag">Kids Club</span></div>
+            <div class="pill-row">
+              <span class="m-tag">Included in Cruise Fare</span>
+              <span class="m-tag">Waterslides</span>
+            </div>
           </div>
           <div class="choice-detail detail-d3o2">
             <strong>Together on Deck:</strong> Morning swim in the main pool followed by Navigator Dunes Mini Golf on Deck 13.
-            <div class="pill-row"><span class="m-tag">All Ages</span></div>
+            <div class="pill-row">
+              <span class="m-tag">Included in Cruise Fare</span>
+              <span class="m-tag">All Ages</span>
+            </div>
           </div>
           <div class="choice-detail detail-d3o3">
-            <strong>Easy Morning Pace:</strong> Unhurried coffee, reading, and indoor promenade browsing.
-            <div class="pill-row"><span class="m-tag">Relaxed</span></div>
+            <strong>Easy Morning Pace:</strong> Unhurried coffee, reading, and indoor promenade browsing (specialty coffee/drinks &amp; spa treatments cost extra).
+            <div class="pill-row">
+              <span class="m-tag cost">Base Access Free • Specialty Drinks/Spa Extra</span>
+            </div>
           </div>
         </div>
 
         <div class="itinerary-block">
           <div class="time-stamp">2:00 PM – 7:30 PM (12:00 PM Lunch • 5:00 PM Dinner)</div>
           <div class="block-title">Afternoon Show &amp; Early Dinner (Pick 1 of 3 Options)</div>
-          <input type="radio" name="d3b-slot" id="d4o1" class="nav-state" checked />
-          <input type="radio" name="d3b-slot" id="d4o2" class="nav-state" />
-          <input type="radio" name="d3b-slot" id="d4o3" class="nav-state" />
+          <input type="radio" name="d3b-slot" id="d3bo1" class="nav-state" checked />
+          <input type="radio" name="d3b-slot" id="d3bo2" class="nav-state" />
+          <input type="radio" name="d3b-slot" id="d3bo3" class="nav-state" />
           <div class="choice-stack">
-            <label for="d4o1" class="choice-btn">1. Studio B Ice Show + 5:00 PM Dinner</label>
-            <label for="d4o2" class="choice-btn">2. Afternoon Rest + 5:00 PM Dinner</label>
-            <label for="d4o3" class="choice-btn">3. Laser Tag / Sports + 5:00 PM Dinner</label>
+            <label for="d3bo1" class="choice-btn">1. Studio B Ice Show + 5:00 PM Dinner</label>
+            <label for="d3bo2" class="choice-btn">2. Afternoon Rest + 5:00 PM Dinner</label>
+            <label for="d3bo3" class="choice-btn">3. Laser Tag / Sports + 5:00 PM Dinner</label>
+          </div>
+          <div class="choice-detail detail-d3bo1">
+            <strong>Ice Skating Show:</strong> Catch the indoor Studio B show (book free passes in the app on Day 1) before heading to dinner at 5:00 PM.
+            <div class="pill-row">
+              <span class="m-tag">Included in Cruise Fare</span>
+              <span class="m-tag">Indoor AC</span>
+            </div>
+          </div>
+          <div class="choice-detail detail-d3bo2">
+            <strong>Cabin Downtime:</strong> Rest in staterooms after lunch before meeting for the 5:00 PM dinner and evening stroll.
+            <div class="pill-row">
+              <span class="m-tag">Included in Cruise Fare</span>
+              <span class="m-tag">Recharge</span>
+            </div>
+          </div>
+          <div class="choice-detail detail-d3bo3">
+            <strong>Active Afternoon:</strong> Battle for Planet Z Laser Tag (ages 5+) or sports court games, followed by 5:00 PM dinner and packing bags before 10:00 PM.
+            <div class="pill-row">
+              <span class="m-tag cost">Sports Court Free • Laser Tag / Arcade ~US$10–US$20+ (~S$13–S$27+)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAY 4 -->
+    <section id="panel-4" class="deck-panel">
+      <div class="log-card">
+        <div class="log-head">
+          <h2>Day 4 • Sun, 20 Dec — Return to Singapore</h2>
+          <span class="port-pill">Dock 7:00 AM • Off ~8:30–9:30 AM</span>
+        </div>
+
+        <div class="itinerary-block">
+          <div class="time-stamp">7:30 AM – 10:30 AM</div>
+          <div class="block-title">Disembarkation &amp; Drive Home (Pick 1 of 3 Options)</div>
+          <input type="radio" name="d4-slot" id="d4o1" class="nav-state" checked />
+          <input type="radio" name="d4-slot" id="d4o2" class="nav-state" />
+          <input type="radio" name="d4-slot" id="d4o3" class="nav-state" />
+          <div class="choice-stack">
+            <label for="d4o1" class="choice-btn">1. Breakfast Onboard (~8:45 AM Off)</label>
+            <label for="d4o2" class="choice-btn">2. Express Walk-Off (~7:30 AM)</label>
+            <label for="d4o3" class="choice-btn">3. Breakfast Stop Back in SG</label>
           </div>
           <div class="choice-detail detail-d4o1">
-            <strong>Ice Skating Show:</strong> Catch the indoor Studio B show (book free passes in the app on Day 1) before heading to dinner at 5:00 PM.
-            <div class="pill-row"><span class="m-tag">Indoor AC</span><span class="m-tag">Show</span></div>
+            <strong>Relaxed Group Disembarkation:</strong> Wake at 7:30 AM, vacate cabins by 8:00 AM, enjoy breakfast onboard, clear immigration, take the lift to <strong>MBCCS Level 3</strong>, and drive straight home.
+            <div class="pill-row">
+              <span class="m-tag">Breakfast Included Onboard</span>
+              <span class="m-tag">No Heavy Bag Carry</span>
+            </div>
           </div>
           <div class="choice-detail detail-d4o2">
-            <strong>Cabin Downtime:</strong> Rest in staterooms after lunch before meeting for the 5:00 PM dinner and evening st
+            <strong>Express Self-Assist Walk-Off:</strong> Carry all your own luggage off as soon as gangways open (~7:15–7:30 AM) to beat terminal queues and head home early.
+            <div class="pill-row">
+              <span class="m-tag">Fastest Exit</span>
+              <span class="m-tag">Carry Own Bags</span>
+            </div>
+          </div>
+          <div class="choice-detail detail-d4o3">
+            <strong>Exit Ship &amp; Eat Back in Singapore:</strong> Disembark around 8:30–9:00 AM, drive from MBCCS Level 3, and stop for a casual brunch in Singapore before heading home.
+            <div class="pill-row">
+              <span class="m-tag cost">Est. S$12–S$25 / pax for SG brunch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARKING & INFO -->
+    <section id="panel-5" class="deck-panel">
+      <div class="log-card">
+        <div class="log-head">
+          <h2>Parking, Paid Extras &amp; Sailing Notes</h2>
+          <span class="port-pill">MBCCS Singapore</span>
+        </div>
+
+        <div class="parking-callout">
+          <strong>MBCCS Advance Carpark Package: S$110 / vehicle (4D3N)</strong><br />
+          Book online before 17 Dec and park strictly on <strong>Level 3</strong>. Walk-in hourly parking on Level 2 works out to roughly <strong>~S$204</strong> for 72 hours, while nearby Marina South Pier is roughly <strong>~S$137</strong>.
+          <br />
+          <a class="port-btn" href="https://mbccs.com.sg/advance-carpark-reservation" target="_blank" rel="noopener">MBCCS Advance Parking Info</a>
+        </div>
+
+        <div class="note-box">
+          <h3>Typical Paid Items to Budget For</h3>
+          <ul>
+            <li><strong>Pre-Cruise Lunch (Day 1):</strong> ~S$12–S$32 per person + ~S$3–S$6 mall parking (or free onboard at Windjammer).</li>
+            <li><strong>Penang Shore Transport &amp; Meals (Day 2):</strong> Trishaws ~RM 40–50/hr (~S$12–S$16); Penang Hill funicular ~RM 30–40 per adult (~S$9–S$12); Grab rides &amp; local meals ~RM 35–60 per person (~S$11–S$18).</li>
+            <li><strong>Optional Onboard Extras:</strong> Specialty dining, alcoholic/specialty drinks, Wi-Fi packages, spa treatments, arcade games, and select paid activities (such as Laser Tag or organized shore excursions) are billed in USD on your onboard account—check exact live pricing in the Royal Caribbean app or website before sailing.</li>
+          </ul>
+        </div>
+
+        <div class="note-box">
+          <h3>Onboard &amp; Port Reminders</h3>
+          <ul>
+            <li>Complete <strong>eMuster</strong> and book free <strong>Studio B Ice Show</strong> passes on Day 1 via the Royal Caribbean app.</li>
+            <li>Adventure Ocean (ages 3–5) requires children to be fully potty-trained.</li>
+            <li>Check Malaysia Digital Arrival Card (MDAC) requirements ahead of the 18 Dec Penang stop.</li>
+          </ul>
+        </div>
+
+        <div class="note-box">
+          <h3>Quick Checklist</h3>
+          <label class="check-row"><input type="checkbox" /><span>Passports (6+ months validity) &amp; SetSail Passes</span></label>
+          <label class="check-row"><input type="checkbox" /><span>MBCCS Level 3 advance parking confirmation</span></label>
+          <label class="check-row"><input type="checkbox" /><span>Swimwear, daily medications &amp; light layers for AC</span></label>
+          <label class="check-row"><input type="checkbox" /><span>Small MYR cash &amp; Grab app ready for Penang</span></label>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
+
