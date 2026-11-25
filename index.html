@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Navigator of the Seas | Family Cruise Planner (17–20 Dec)</title>
   <style>
     :root {
@@ -15,8 +15,6 @@
       --text: #1e293b;
       --muted: #64748b;
       --border: #e2e8f0;
-      --green: #059669;
-      --green-bg: #ecfdf5;
     }
 
     * {
@@ -24,19 +22,22 @@
       margin: 0;
       padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    body {
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.5;
-      padding-bottom: 4rem;
+      padding-bottom: 4.5rem;
     }
 
     header {
       background: linear-gradient(135deg, var(--navy) 0%, var(--ocean) 100%);
       color: white;
-      padding: 2rem 1.25rem 2.75rem;
+      padding: 1.75rem 1rem 2.5rem;
       text-align: center;
       box-shadow: 0 4px 14px rgba(10, 37, 64, 0.18);
     }
@@ -46,21 +47,21 @@
       background: rgba(255, 255, 255, 0.18);
       padding: 0.3rem 0.85rem;
       border-radius: 999px;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.6rem;
     }
 
     header h1 {
-      font-size: 1.7rem;
+      font-size: 1.55rem;
       font-weight: 800;
       margin-bottom: 0.35rem;
     }
 
     header p {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       opacity: 0.92;
       max-width: 600px;
       margin: 0 auto;
@@ -70,22 +71,23 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.45rem;
-      margin-top: 1rem;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
     }
 
     .rhythm-pill {
       background: rgba(255, 255, 255, 0.14);
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 8px;
-      padding: 0.28rem 0.6rem;
-      font-size: 0.78rem;
+      padding: 0.25rem 0.55rem;
+      font-size: 0.75rem;
     }
 
     .container {
+      width: 100%;
       max-width: 860px;
-      margin: -1.4rem auto 0;
-      padding: 0 1rem;
+      margin: -1.35rem auto 0;
+      padding: 0 0.85rem;
     }
 
     .tabs {
@@ -94,23 +96,23 @@
       border-radius: 12px;
       padding: 0.35rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.15rem;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       gap: 0.25rem;
     }
 
     .tab-btn {
-      flex: 1;
-      min-width: 105px;
+      flex: 1 0 auto;
       border: none;
       background: transparent;
-      padding: 0.65rem 0.65rem;
+      padding: 0.6rem 0.75rem;
       border-radius: 8px;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 700;
       color: var(--muted);
       cursor: pointer;
-      transition: all 0.2s;
+      touch-action: manipulation;
       white-space: nowrap;
     }
 
@@ -125,19 +127,13 @@
 
     .section.active {
       display: block;
-      animation: fadeIn 0.22s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 1.25rem;
+      padding: 1.1rem;
       margin-bottom: 1rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
     }
@@ -154,24 +150,24 @@
     }
 
     .card-header h2 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--navy);
     }
 
     .port-badge {
       background: var(--sky);
       color: var(--ocean);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
-      padding: 0.25rem 0.65rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 6px;
     }
 
     .slot {
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 0.95rem;
+      padding: 0.95rem;
+      margin-bottom: 0.9rem;
       background: #fcfdff;
     }
 
@@ -179,25 +175,17 @@
       margin-bottom: 0;
     }
 
-    .slot-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.5rem;
-    }
-
     .slot-time {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 800;
       color: var(--ocean);
       text-transform: uppercase;
       letter-spacing: 0.03em;
+      margin-bottom: 0.25rem;
     }
 
     .slot-title {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 0.45rem;
@@ -208,27 +196,50 @@
       color: #475569;
     }
 
+    /* Mobile-friendly option buttons that never clip off-screen */
     .option-pills {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin: 0.55rem 0 0.7rem;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin: 0.6rem 0 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .option-pills {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
     }
 
     .opt-btn {
+      width: 100%;
+      text-align: left;
       border: 1.5px solid #cbd5e1;
       background: white;
       color: var(--text);
-      padding: 0.38rem 0.72rem;
-      border-radius: 8px;
-      font-size: 0.82rem;
+      padding: 0.55rem 0.8rem;
+      border-radius: 9px;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.15s;
+      touch-action: manipulation;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .opt-btn:hover {
-      border-color: var(--ocean);
+    @media (min-width: 640px) {
+      .opt-btn {
+        width: auto;
+      }
+    }
+
+    .opt-btn::after {
+      content: "Tap to view";
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-left: 0.5rem;
     }
 
     .opt-btn.selected {
@@ -237,15 +248,22 @@
       border-color: var(--navy);
     }
 
+    .opt-btn.selected::after {
+      content: "✓ Selected";
+      color: #93c5fd;
+      font-weight: 700;
+    }
+
     .opt-panel {
       display: none;
       background: white;
       border: 1px solid var(--border);
       border-left: 4px solid var(--ocean);
       border-radius: 8px;
-      padding: 0.8rem 0.95rem;
+      padding: 0.85rem 0.95rem;
       font-size: 0.88rem;
       color: #334155;
+      word-wrap: break-word;
     }
 
     .opt-panel.active {
@@ -256,7 +274,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-top: 0.5rem;
+      margin-top: 0.55rem;
     }
 
     .tag {
@@ -292,7 +310,7 @@
     }
 
     .info-box h3 {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       color: var(--navy);
       margin-bottom: 0.35rem;
     }
@@ -317,13 +335,9 @@
       text-decoration: none;
       font-size: 0.82rem;
       font-weight: 600;
-      padding: 0.5rem 0.85rem;
+      padding: 0.55rem 0.85rem;
       border-radius: 8px;
       margin-top: 0.65rem;
-    }
-
-    .btn-link:hover {
-      background: var(--ocean);
     }
 
     .price-banner {
@@ -335,36 +349,18 @@
       font-size: 0.88rem;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.86rem;
-    }
-
-    th, td {
-      text-align: left;
-      padding: 0.6rem 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    th {
-      background: #f1f5f9;
-      color: var(--navy);
-      font-weight: 700;
-    }
-
     .checklist-item {
       display: flex;
       align-items: flex-start;
       gap: 0.6rem;
-      padding: 0.5rem 0;
+      padding: 0.55rem 0;
       border-bottom: 1px solid var(--border);
       cursor: pointer;
       font-size: 0.88rem;
     }
 
     .checklist-item:last-child { border-bottom: none; }
-    .checklist-item input { margin-top: 0.22rem; width: 16px; height: 16px; accent-color: var(--ocean); }
+    .checklist-item input { margin-top: 0.22rem; width: 17px; height: 17px; accent-color: var(--ocean); }
     .checklist-item.checked span { text-decoration: line-through; color: var(--muted); }
 
     .summary-strip {
@@ -378,7 +374,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.84rem;
+      gap: 0.5rem;
+      font-size: 0.8rem;
       z-index: 50;
       box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
     }
@@ -387,10 +384,11 @@
       background: rgba(255,255,255,0.16);
       border: 1px solid rgba(255,255,255,0.3);
       color: white;
-      padding: 0.3rem 0.65rem;
+      padding: 0.35rem 0.65rem;
       border-radius: 6px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       cursor: pointer;
+      white-space: nowrap;
     }
   </style>
 </head>
@@ -410,11 +408,11 @@
 
   <div class="container">
     <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('day1', this)">Day 1 • Board</button>
-      <button class="tab-btn" onclick="switchTab('day2', this)">Day 2 • Penang</button>
-      <button class="tab-btn" onclick="switchTab('day3', this)">Day 3 • Sea Day</button>
-      <button class="tab-btn" onclick="switchTab('day4', this)">Day 4 • Home</button>
-      <button class="tab-btn" onclick="switchTab('logistics', this)">Parking & Tips</button>
+      <button type="button" class="tab-btn active" data-tab="day1">Day 1 • Board</button>
+      <button type="button" class="tab-btn" data-tab="day2">Day 2 • Penang</button>
+      <button type="button" class="tab-btn" data-tab="day3">Day 3 • Sea Day</button>
+      <button type="button" class="tab-btn" data-tab="day4">Day 4 • Home</button>
+      <button type="button" class="tab-btn" data-tab="logistics">Parking & Tips</button>
     </div>
 
     <!-- ==================== DAY 1 ==================== -->
@@ -425,16 +423,13 @@
           <span class="port-badge">Board 1:00 PM • Sail 4:00 PM</span>
         </div>
 
-        <!-- Slot 1 -->
         <div class="slot" data-slot="d1-lunch">
-          <div class="slot-top">
-            <span class="slot-time">11:00 AM – 12:15 PM</span>
-          </div>
+          <div class="slot-time">11:00 AM – 12:15 PM</div>
           <div class="slot-title">Pre-Cruise Lunch (Tap to Pick Preference)</div>
           <div class="option-pills">
-            <button class="opt-btn selected" onclick="selectOpt(this, 0)">Option A: 100 AM Mall</button>
-            <button class="opt-btn" onclick="selectOpt(this, 1)">Option B: Jurassic Nest</button>
-            <button class="opt-btn" onclick="selectOpt(this, 2)">Option C: Eat Onboard</button>
+            <button type="button" class="opt-btn selected" data-idx="0">Option A: 100 AM Mall</button>
+            <button type="button" class="opt-btn" data-idx="1">Option B: Jurassic Nest</button>
+            <button type="button" class="opt-btn" data-idx="2">Option C: Eat Onboard</button>
           </div>
           <div class="opt-panel active">
             <strong>100 AM (Tanjong Pagar — 6 mins drive to MBCCS):</strong> Fully air-conditioned, lift-accessible, easy basement parking, and kid/senior-friendly Japanese & Asian spots (Yayoi, Ramen Keisuke) opening at 11:00 AM.
@@ -445,141 +440,5 @@
             <div class="opt-meta"><span class="tag kid">Kids Love Dinosaurs</span><span class="tag senior">Air-Con</span></div>
           </div>
           <div class="opt-panel">
-            <strong>Skip Town Lunch & Board Early:</strong> Head straight to MBCCS for 12:30 PM drop-off and eat complimentary buffet lunch at Windjammer Marketplace (Deck 11) right after boarding.
-            <div class="opt-meta"><span class="tag">Zero Extra Parking</span></div>
-          </div>
-        </div>
-
-        <!-- Slot 2 -->
-        <div class="slot">
-          <div class="slot-top">
-            <span class="slot-time">12:25 PM – 1:45 PM</span>
-          </div>
-          <div class="slot-title">Drop-Off, Level 3 Parking & Boarding</div>
-          <div class="slot-note">
-            Drop Mum, wives, kids, and tagged suitcases at <strong>MBCCS Level 1 Departure</strong> first. Drivers park at <strong>Level 3 (S$110 pre-booked)</strong>. Once onboard, complete the <strong>eMuster safety check-in</strong> immediately on the app.
-          </div>
-        </div>
-
-        <!-- Slot 3 -->
-        <div class="slot" data-slot="d1-pm">
-          <div class="slot-top">
-            <span class="slot-time">2:00 PM – 4:30 PM</span>
-          </div>
-          <div class="slot-title">Afternoon Ship Discovery & Sail Away</div>
-          <div class="option-pills">
-            <button class="opt-btn selected" onclick="selectOpt(this, 0)">Option A: Pool & Kids Club Reg</button>
-            <button class="opt-btn" onclick="selectOpt(this, 1)">Option B: Slides & Promenade</button>
-          </div>
-          <div class="opt-panel active">
-            <strong>Register at Adventure Ocean (Deck 12) + Pool Deck:</strong> Complete the 1-minute registration for the 3yo & 5yo (Aquanauts group), change into swimwear from your daypack, and watch the 4:00 PM Singapore sail-away from Deck 11/12.
-            <div class="opt-meta"><span class="tag kid">3yo & 5yo</span><span class="tag">Must-Do Reg</span></div>
-          </div>
-          <div class="opt-panel">
-            <strong>Royal Promenade Walk + Waterslides:</strong> Stroll the indoor Royal Promenade (Deck 5) with Mum for coffee/snacks at Café Promenade while adults/older kids test The Blaster aqua coaster before queues build.
-            <div class="opt-meta"><span class="tag senior">Easy Walking</span><span class="tag thrill">Thrills</span></div>
-          </div>
-        </div>
-
-        <!-- Slot 4 -->
-        <div class="slot" data-slot="d1-dinner">
-          <div class="slot-top">
-            <span class="slot-time">5:00 PM – 6:30 PM</span>
-          </div>
-          <div class="slot-title">Early Family Dinner & Evening</div>
-          <div class="option-pills">
-            <button class="opt-btn selected" onclick="selectOpt(this, 0)">Option A: Main Dining Room</button>
-            <button class="opt-btn" onclick="selectOpt(this, 1)">Option B: Windjammer Buffet</button>
-          </div>
-          <div class="opt-panel active">
-            <strong>Main Dining Room (Decks 3–5, 5:15/5:30 PM Early Seating):</strong> Seated waiter service—great so Mum doesn't have to carry plates, and kids' meals (mac & cheese, chicken fingers, fruit) come out fast. Follow with the Welcome Aboard Show in the Royal Theater.
-            <div class="opt-meta"><span class="tag senior">Table Service</span><span class="tag kid">Kids Menu</span></div>
-          </div>
-          <div class="opt-panel">
-            <strong>Windjammer Marketplace (Deck 11, opens 5:30 PM):</strong> Quick, casual buffet with Asian dishes, carving station, and desserts—ideal if the 3yo and 5yo are tired after boarding day.
-            <div class="opt-meta"><span class="tag kid">Fast & Casual</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== DAY 2 ==================== -->
-    <div id="day2" class="section">
-      <div class="card">
-        <div class="card-header">
-          <h2>🇲🇾 Day 2: Fri, 18 Dec — George Town, Penang</h2>
-          <span class="port-badge">Docked 3:00 PM – 11:00 PM</span>
-        </div>
-
-        <!-- Morning -->
-        <div class="slot">
-          <div class="slot-top">
-            <span class="slot-time">8:00 AM Wake • 9:00 AM Breakfast</span>
-          </div>
-          <div class="slot-title">Relaxed Cruise Morning at Sea</div>
-          <div class="slot-note">
-            <strong>9:00 AM:</strong> Breakfast at Windjammer (Deck 11) or Main Dining Room (Deck 3).<br />
-            <strong>10:00 AM – 12:00 PM:</strong> Drop the 3yo & 5yo at <strong>Adventure Ocean (9:00 AM–12:00 PM session)</strong> while adults relax in the Solarium or play mini golf / rock climbing with Mum watching from shaded seating.
-          </div>
-        </div>
-
-        <!-- Lunch -->
-        <div class="slot">
-          <div class="slot-top">
-            <span class="slot-time">12:00 PM – 1:15 PM</span>
-          </div>
-          <div class="slot-title">Early Onboard Lunch Before Docking</div>
-          <div class="slot-note">
-            Eat a full lunch at <strong>12:00 PM</strong> onboard (Windjammer or El Loco Fresh Mexican snacks by the pool) so the kids and Mum aren't hungry when the ship clears immigration at 3:00 PM. Optional 1:30–2:30 PM cabin nap for the 3yo!
-          </div>
-        </div>
-
-        <!-- Afternoon / Evening Penang Options -->
-        <div class="slot" data-slot="d2-penang">
-          <div class="slot-top">
-            <span class="slot-time">3:15 PM – 7:30 PM (Includes ~5:00 PM Dinner)</span>
-          </div>
-          <div class="slot-title">Penang Shore Plan (Choose Group Preference)</div>
-          <div class="option-pills">
-            <button class="opt-btn selected" onclick="selectOpt(this, 0)">Option A: Trishaw + Heritage + Early Dinner</button>
-            <button class="opt-btn" onclick="selectOpt(this, 1)">Option B: Penang Hill Sunset & Café</button>
-            <button class="opt-btn" onclick="selectOpt(this, 2)">Option C: Stay Onboard (Zero Rush)</button>
-          </div>
-          <div class="opt-panel active">
-            <strong>George Town Trishaw Tour + Air-Con Heritage Dinner (Best for 3yo, 5yo & Mum):</strong><br />
-            • <strong>3:15 PM:</strong> Walk straight off Swettenham Pier (right in George Town) and hire 3–4 trishaws (~RM 40–50/trishaw/hr) to ride past Armenian Street murals, Clan Jetties, and Fort Cornwallis without tiring out Mum or the kids.<br />
-            • <strong>5:00 PM Early Dinner:</strong> Dine in air-conditioned comfort at <strong>Tek Sen Restaurant</strong> (Carnarvon St — famous double-roasted pork & home-style Chinese dishes) or <strong>Kebaya / ChinaHouse</strong>, then grab Grab cars back to the pier by 7:00 PM.
-            <div class="opt-meta"><span class="tag senior">Minimal Walking</span><span class="tag kid">Kids Love Trishaws</span></div>
-          </div>
-          <div class="opt-panel">
-            <strong>Penang Hill Funicular Railway + David Brown's / Cliff Cafe:</strong><br />
-            • <strong>3:15 PM:</strong> Book two 6-seater Grab cars from Swettenham Pier to Penang Hill Lower Station (~25 mins). Take the fast funicular train up to cool 22°C hilltop views.<br />
-            • <strong>5:00 PM Early Dinner:</strong> Eat at the hilltop food court or David Brown's Restaurant before taking the train down by 6:45 PM (note: Friday evening funicular queues can take 30–45 mins).
-            <div class="opt-meta"><span class="tag">Cool Weather</span><span class="tag kid">Train Ride</span></div>
-          </div>
-          <div class="opt-panel">
-            <strong>Stay Onboard & Enjoy an Empty Ship:</strong><br />
-            Most passengers go ashore at 3:00 PM—meaning virtually zero queues at the pools, FlowRider, and waterslides. Have a peaceful <strong>5:15 PM Main Dining Room dinner</strong> and drop the kids at Adventure Ocean (7:00–10:00 PM) for an adults' night out at the Royal Promenade or Schooner Bar.
-            <div class="opt-meta"><span class="tag kid">Zero Pool Queues</span><span class="tag senior">Restful</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== DAY 3 ==================== -->
-    <div id="day3" class="section">
-      <div class="card">
-        <div class="card-header">
-          <h2>🌊 Day 3: Sat, 19 Dec — Full Day at Sea</h2>
-          <span class="port-badge">Cruising Malacca Strait</span>
-        </div>
-
-        <!-- Morning -->
-        <div class="slot" data-slot="d3-am">
-          <div class="slot-top">
-            <span class="slot-time">8:00 AM Wake • 9:00 AM Breakfast • 10:00 AM Play</span>
-          </div>
-          <div class="slot-title">Morning Activity (10:00 AM – 12:00 PM)</div>
-          <div class="option-pills">
-            <button class="opt-btn selected" onclick="selectOpt(this, 0)">Option A: Kids Club + Adult Thrills</button>
-            <button class="opt-btn" onclick="selectOpt(this, 1)">Option B: All-Family Pool & Mini Golf</button
+            <strong>Skip Town Lunch & Board Early:</strong> Head straight to MBCCS for 12:30 PM drop-off and eat complimentary buffet lunch
+            
