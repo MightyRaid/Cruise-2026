@@ -264,4 +264,939 @@
     .choice-btn {
       display: flex;
       justify-content: space-between;
-      align-
+      align-items: center;
+      width: 100%;
+      padding: 0.6rem 0.85rem;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+
+    .choice-btn::after {
+      content: "View";
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--lagoon);
+      background: #ecfeff;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      margin-left: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .choice-detail {
+      display: none;
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-left: 4px solid var(--lagoon);
+      border-radius: 10px;
+      padding: 0.85rem 0.95rem;
+      font-size: 0.85rem;
+      color: var(--ink);
+    }
+
+    .night-mode .choice-detail {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+      border-left-color: #4338ca;
+    }
+
+    .choice-detail ul {
+      padding-left: 1.15rem;
+      margin-top: 0.35rem;
+    }
+
+    .choice-detail li {
+      margin-bottom: 0.3rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.55rem;
+    }
+
+    .m-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.16rem 0.52rem;
+      border-radius: 6px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: var(--deep-ocean);
+    }
+
+    .m-tag.cost {
+      background: var(--sun-soft);
+      border-color: #fcd34d;
+      color: #92400e;
+    }
+
+    .m-tag.free {
+      background: var(--mint-bg);
+      border-color: #a7f3d0;
+      color: var(--mint-ink);
+    }
+
+    .m-tag.night {
+      background: var(--twilight-bg);
+      border-color: #c7d2fe;
+      color: var(--twilight);
+    }
+
+    /* Active states for all 22 3-option slots (c1 .. c22) */
+    #c1-1:checked ~ .choice-stack label[for="c1-1"], #c1-2:checked ~ .choice-stack label[for="c1-2"], #c1-3:checked ~ .choice-stack label[for="c1-3"],
+    #c2-1:checked ~ .choice-stack label[for="c2-1"], #c2-2:checked ~ .choice-stack label[for="c2-2"], #c2-3:checked ~ .choice-stack label[for="c2-3"],
+    #c3-1:checked ~ .choice-stack label[for="c3-1"], #c3-2:checked ~ .choice-stack label[for="c3-2"], #c3-3:checked ~ .choice-stack label[for="c3-3"],
+    #c4-1:checked ~ .choice-stack label[for="c4-1"], #c4-2:checked ~ .choice-stack label[for="c4-2"], #c4-3:checked ~ .choice-stack label[for="c4-3"],
+    #c5-1:checked ~ .choice-stack label[for="c5-1"], #c5-2:checked ~ .choice-stack label[for="c5-2"], #c5-3:checked ~ .choice-stack label[for="c5-3"],
+    #c6-1:checked ~ .choice-stack label[for="c6-1"], #c6-2:checked ~ .choice-stack label[for="c6-2"], #c6-3:checked ~ .choice-stack label[for="c6-3"],
+    #c7-1:checked ~ .choice-stack label[for="c7-1"], #c7-2:checked ~ .choice-stack label[for="c7-2"], #c7-3:checked ~ .choice-stack label[for="c7-3"],
+    #c8-1:checked ~ .choice-stack label[for="c8-1"], #c8-2:checked ~ .choice-stack label[for="c8-2"], #c8-3:checked ~ .choice-stack label[for="c8-3"],
+    #c9-1:checked ~ .choice-stack label[for="c9-1"], #c9-2:checked ~ .choice-stack label[for="c9-2"], #c9-3:checked ~ .choice-stack label[for="c9-3"],
+    #c10-1:checked ~ .choice-stack label[for="c10-1"], #c10-2:checked ~ .choice-stack label[for="c10-2"], #c10-3:checked ~ .choice-stack label[for="c10-3"],
+    #c11-1:checked ~ .choice-stack label[for="c11-1"], #c11-2:checked ~ .choice-stack label[for="c11-2"], #c11-3:checked ~ .choice-stack label[for="c11-3"],
+    #c12-1:checked ~ .choice-stack label[for="c12-1"], #c12-2:checked ~ .choice-stack label[for="c12-2"], #c12-3:checked ~ .choice-stack label[for="c12-3"],
+    #c13-1:checked ~ .choice-stack label[for="c13-1"], #c13-2:checked ~ .choice-stack label[for="c13-2"], #c13-3:checked ~ .choice-stack label[for="c13-3"],
+    #c14-1:checked ~ .choice-stack label[for="c14-1"], #c14-2:checked ~ .choice-stack label[for="c14-2"], #c14-3:checked ~ .choice-stack label[for="c14-3"],
+    #c15-1:checked ~ .choice-stack label[for="c15-1"], #c15-2:checked ~ .choice-stack label[for="c15-2"], #c15-3:checked ~ .choice-stack label[for="c15-3"],
+    #c16-1:checked ~ .choice-stack label[for="c16-1"], #c16-2:checked ~ .choice-stack label[for="c16-2"], #c16-3:checked ~ .choice-stack label[for="c16-3"],
+    #c17-1:checked ~ .choice-stack label[for="c17-1"], #c17-2:checked ~ .choice-stack label[for="c17-2"], #c17-3:checked ~ .choice-stack label[for="c17-3"],
+    #c18-1:checked ~ .choice-stack label[for="c18-1"], #c18-2:checked ~ .choice-stack label[for="c18-2"], #c18-3:checked ~ .choice-stack label[for="c18-3"],
+    #c19-1:checked ~ .choice-stack label[for="c19-1"], #c19-2:checked ~ .choice-stack label[for="c19-2"], #c19-3:checked ~ .choice-stack label[for="c19-3"],
+    #c20-1:checked ~ .choice-stack label[for="c20-1"], #c20-2:checked ~ .choice-stack label[for="c20-2"], #c20-3:checked ~ .choice-stack label[for="c20-3"],
+    #c21-1:checked ~ .choice-stack label[for="c21-1"], #c21-2:checked ~ .choice-stack label[for="c21-2"], #c21-3:checked ~ .choice-stack label[for="c21-3"],
+    #c22-1:checked ~ .choice-stack label[for="c22-1"], #c22-2:checked ~ .choice-stack label[for="c22-2"], #c22-3:checked ~ .choice-stack label[for="c22-3"] {
+      background: linear-gradient(135deg, var(--deep-ocean) 0%, var(--lagoon) 100%);
+      color: #ffffff;
+      border-color: var(--deep-ocean);
+    }
+
+    #c1-1:checked ~ .choice-stack label[for="c1-1"]::after, #c1-2:checked ~ .choice-stack label[for="c1-2"]::after, #c1-3:checked ~ .choice-stack label[for="c1-3"]::after,
+    #c2-1:checked ~ .choice-stack label[for="c2-1"]::after, #c2-2:checked ~ .choice-stack label[for="c2-2"]::after, #c2-3:checked ~ .choice-stack label[for="c2-3"]::after,
+    #c3-1:checked ~ .choice-stack label[for="c3-1"]::after, #c3-2:checked ~ .choice-stack label[for="c3-2"]::after, #c3-3:checked ~ .choice-stack label[for="c3-3"]::after,
+    #c4-1:checked ~ .choice-stack label[for="c4-1"]::after, #c4-2:checked ~ .choice-stack label[for="c4-2"]::after, #c4-3:checked ~ .choice-stack label[for="c4-3"]::after,
+    #c5-1:checked ~ .choice-stack label[for="c5-1"]::after, #c5-2:checked ~ .choice-stack label[for="c5-2"]::after, #c5-3:checked ~ .choice-stack label[for="c5-3"]::after,
+    #c6-1:checked ~ .choice-stack label[for="c6-1"]::after, #c6-2:checked ~ .choice-stack label[for="c6-2"]::after, #c6-3:checked ~ .choice-stack label[for="c6-3"]::after,
+    #c7-1:checked ~ .choice-stack label[for="c7-1"]::after, #c7-2:checked ~ .choice-stack label[for="c7-2"]::after, #c7-3:checked ~ .choice-stack label[for="c7-3"]::after,
+    #c8-1:checked ~ .choice-stack label[for="c8-1"]::after, #c8-2:checked ~ .choice-stack label[for="c8-2"]::after, #c8-3:checked ~ .choice-stack label[for="c8-3"]::after,
+    #c9-1:checked ~ .choice-stack label[for="c9-1"]::after, #c9-2:checked ~ .choice-stack label[for="c9-2"]::after, #c9-3:checked ~ .choice-stack label[for="c9-3"]::after,
+    #c10-1:checked ~ .choice-stack label[for="c10-1"]::after, #c10-2:checked ~ .choice-stack label[for="c10-2"]::after, #c10-3:checked ~ .choice-stack label[for="c10-3"]::after,
+    #c11-1:checked ~ .choice-stack label[for="c11-1"]::after, #c11-2:checked ~ .choice-stack label[for="c11-2"]::after, #c11-3:checked ~ .choice-stack label[for="c11-3"]::after,
+    #c12-1:checked ~ .choice-stack label[for="c12-1"]::after, #c12-2:checked ~ .choice-stack label[for="c12-2"]::after, #c12-3:checked ~ .choice-stack label[for="c12-3"]::after,
+    #c13-1:checked ~ .choice-stack label[for="c13-1"]::after, #c13-2:checked ~ .choice-stack label[for="c13-2"]::after, #c13-3:checked ~ .choice-stack label[for="c13-3"]::after,
+    #c14-1:checked ~ .choice-stack label[for="c14-1"]::after, #c14-2:checked ~ .choice-stack label[for="c14-2"]::after, #c14-3:checked ~ .choice-stack label[for="c14-3"]::after,
+    #c15-1:checked ~ .choice-stack label[for="c15-1"]::after, #c15-2:checked ~ .choice-stack label[for="c15-2"]::after, #c15-3:checked ~ .choice-stack label[for="c15-3"]::after,
+    #c16-1:checked ~ .choice-stack label[for="c16-1"]::after, #c16-2:checked ~ .choice-stack label[for="c16-2"]::after, #c16-3:checked ~ .choice-stack label[for="c16-3"]::after,
+    #c17-1:checked ~ .choice-stack label[for="c17-1"]::after, #c17-2:checked ~ .choice-stack label[for="c17-2"]::after, #c17-3:checked ~ .choice-stack label[for="c17-3"]::after,
+    #c18-1:checked ~ .choice-stack label[for="c18-1"]::after, #c18-2:checked ~ .choice-stack label[for="c18-2"]::after, #c18-3:checked ~ .choice-stack label[for="c18-3"]::after,
+    #c19-1:checked ~ .choice-stack label[for="c19-1"]::after, #c19-2:checked ~ .choice-stack label[for="c19-2"]::after, #c19-3:checked ~ .choice-stack label[for="c19-3"]::after,
+    #c20-1:checked ~ .choice-stack label[for="c20-1"]::after, #c20-2:checked ~ .choice-stack label[for="c20-2"]::after, #c20-3:checked ~ .choice-stack label[for="c20-3"]::after,
+    #c21-1:checked ~ .choice-stack label[for="c21-1"]::after, #c21-2:checked ~ .choice-stack label[for="c21-2"]::after, #c21-3:checked ~ .choice-stack label[for="c21-3"]::after,
+    #c22-1:checked ~ .choice-stack label[for="c22-1"]::after, #c22-2:checked ~ .choice-stack label[for="c22-2"]::after, #c22-3:checked ~ .choice-stack label[for="c22-3"]::after {
+      content: "Selected";
+      background: var(--coral);
+      color: #ffffff;
+    }
+
+    #c1-1:checked ~ .p-c1-1, #c1-2:checked ~ .p-c1-2, #c1-3:checked ~ .p-c1-3,
+    #c2-1:checked ~ .p-c2-1, #c2-2:checked ~ .p-c2-2, #c2-3:checked ~ .p-c2-3,
+    #c3-1:checked ~ .p-c3-1, #c3-2:checked ~ .p-c3-2, #c3-3:checked ~ .p-c3-3,
+    #c4-1:checked ~ .p-c4-1, #c4-2:checked ~ .p-c4-2, #c4-3:checked ~ .p-c4-3,
+    #c5-1:checked ~ .p-c5-1, #c5-2:checked ~ .p-c5-2, #c5-3:checked ~ .p-c5-3,
+    #c6-1:checked ~ .p-c6-1, #c6-2:checked ~ .p-c6-2, #c6-3:checked ~ .p-c6-3,
+    #c7-1:checked ~ .p-c7-1, #c7-2:checked ~ .p-c7-2, #c7-3:checked ~ .p-c7-3,
+    #c8-1:checked ~ .p-c8-1, #c8-2:checked ~ .p-c8-2, #c8-3:checked ~ .p-c8-3,
+    #c9-1:checked ~ .p-c9-1, #c9-2:checked ~ .p-c9-2, #c9-3:checked ~ .p-c9-3,
+    #c10-1:checked ~ .p-c10-1, #c10-2:checked ~ .p-c10-2, #c10-3:checked ~ .p-c10-3,
+    #c11-1:checked ~ .p-c11-1, #c11-2:checked ~ .p-c11-2, #c11-3:checked ~ .p-c11-3,
+    #c12-1:checked ~ .p-c12-1, #c12-2:checked ~ .p-c12-2, #c12-3:checked ~ .p-c12-3,
+    #c13-1:checked ~ .p-c13-1, #c13-2:checked ~ .p-c13-2, #c13-3:checked ~ .p-c13-3,
+    #c14-1:checked ~ .p-c14-1, #c14-2:checked ~ .p-c14-2, #c14-3:checked ~ .p-c14-3,
+    #c15-1:checked ~ .p-c15-1, #c15-2:checked ~ .p-c15-2, #c15-3:checked ~ .p-c15-3,
+    #c16-1:checked ~ .p-c16-1, #c16-2:checked ~ .p-c16-2, #c16-3:checked ~ .p-c16-3,
+    #c17-1:checked ~ .p-c17-1, #c17-2:checked ~ .p-c17-2, #c17-3:checked ~ .p-c17-3,
+    #c18-1:checked ~ .p-c18-1, #c18-2:checked ~ .p-c18-2, #c18-3:checked ~ .p-c18-3,
+    #c19-1:checked ~ .p-c19-1, #c19-2:checked ~ .p-c19-2, #c19-3:checked ~ .p-c19-3,
+    #c20-1:checked ~ .p-c20-1, #c20-2:checked ~ .p-c20-2, #c20-3:checked ~ .p-c20-3,
+    #c21-1:checked ~ .p-c21-1, #c21-2:checked ~ .p-c21-2, #c21-3:checked ~ .p-c21-3,
+    #c22-1:checked ~ .p-c22-1, #c22-2:checked ~ .p-c22-2, #c22-3:checked ~ .p-c22-3 {
+      display: block;
+    }
+
+    /* Info Tab Styling */
+    .parking-hero {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1px solid #fcd34d;
+      border-left: 5px solid var(--sun);
+      border-radius: 12px;
+      padding: 0.95rem 1rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.86rem;
+    }
+
+    .port-btn {
+      display: inline-block;
+      margin-top: 0.55rem;
+      background: var(--deep-ocean);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-top: 0.45rem;
+    }
+
+    .price-table th, .price-table td {
+      text-align: left;
+      padding: 0.55rem 0.45rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price-table th {
+      background: #f0f9ff;
+      color: var(--deep-ocean);
+      font-weight: 700;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .check-row:last-child { border-bottom: none; }
+    .check-row input { margin-top: 0.2rem; width: 17px; height: 17px; accent-color: var(--lagoon); }
+  </style>
+</head>
+<body>
+
+  <!-- Day Navigation Controls -->
+  <input type="radio" name="voyage-deck" id="dk-1" class="nav-state" checked />
+  <input type="radio" name="voyage-deck" id="dk-2" class="nav-state" />
+  <input type="radio" name="voyage-deck" id="dk-3" class="nav-state" />
+  <input type="radio" name="voyage-deck" id="dk-4" class="nav-state" />
+  <input type="radio" name="voyage-deck" id="dk-5" class="nav-state" />
+
+  <header class="hero">
+    <div class="boarding-badge">Royal Caribbean • Navigator of the Seas</div>
+    <h1>Singapore – Penang Holiday Cruise</h1>
+    <div class="hero-route">Thu, 17 Dec – Sun, 20 Dec 2026 • 4 Days / 3 Nights</div>
+    <div class="rhythm-pills">
+      <span class="rhythm-pill">Wake 8:00 AM</span>
+      <span class="rhythm-pill">Breakfast 9:00 AM</span>
+      <span class="rhythm-pill">Lunch 12:00 PM</span>
+      <span class="rhythm-pill">Dinner 5:00 PM</span>
+      <span class="rhythm-pill">Late Night till 12:00 AM</span>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <nav class="deck-tabs" aria-label="Holiday Itinerary Tabs">
+      <label for="dk-1" class="deck-tab">Day 1<br />17 Dec</label>
+      <label for="dk-2" class="deck-tab">Day 2<br />Penang</label>
+      <label for="dk-3" class="deck-tab">Day 3<br />At Sea</label>
+      <label for="dk-4" class="deck-tab">Day 4<br />20 Dec</label>
+      <label for="dk-5" class="deck-tab">Prices<br />&amp; Info</label>
+    </nav>
+
+    <!-- ==================== DAY 1 ==================== -->
+    <section id="panel-1" class="deck-panel">
+      <div class="day-banner">
+        <h2>Day 1 • Thu, 17 Dec — Bon Voyage!</h2>
+        <span class="port-chip">Board 1:00 PM • Sail 4:00 PM</span>
+      </div>
+
+      <!-- C1: Pre-Boarding Lunch -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">11:00 AM – 12:15 PM</span></div>
+        <div class="slot-heading">Pre-Boarding Lunch Options &amp; Prices</div>
+        <input type="radio" name="c1" id="c1-1" class="nav-state" checked />
+        <input type="radio" name="c1" id="c1-2" class="nav-state" />
+        <input type="radio" name="c1" id="c1-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c1-1" class="choice-btn">1. 100 AM Mall (Tanjong Pagar — 6 mins drive)</label>
+          <label for="c1-2" class="choice-btn">2. Jurassic Nest FoodHall (Gardens by the Bay)</label>
+          <label for="c1-3" class="choice-btn">3. Board Early &amp; Eat Onboard (Free / Specialty)</label>
+        </div>
+        <div class="choice-detail p-c1-1">
+          <strong>Best All-Rounder (Air-Con, Lifts &amp; Basement Parking):</strong>
+          <ul>
+            <li><strong>Hawkers' Street (Level 4):</strong> Michelin-recognized local stalls like Da Po Chicken Rice &amp; Wok Hei Hor Fun — <em>~S$7–S$12 / pax</em>.</li>
+            <li><strong>Sushiro (Level 4):</strong> Conveyor-belt sushi with kid-friendly touch-screen ordering — <em>from S$2.30++/plate (~S$18–S$28 / pax)</em>.</li>
+            <li><strong>YAYOI / Ramen Keisuke Tori King (Level 3):</strong> Japanese set meals or ramen — <em>~S$15–S$22 / pax</em>.</li>
+            <li><strong>Cheng Ji Seafood (Level 4):</strong> Family-style zi char sharing dishes — <em>~S$18–S$30 / pax</em>.</li>
+          </ul>
+          <div class="pill-row"><span class="m-tag cost">Food: S$7–S$30 / pax + ~S$3–S$6 Parking</span></div>
+        </div>
+        <div class="choice-detail p-c1-2">
+          <strong>Jurassic Nest FoodHall (Bayfront Plaza — 6 mins drive):</strong>
+          <ul>
+            <li>Opens at <strong>11:00 AM</strong> with life-sized moving dinosaurs that entertain young kids in air-conditioned comfort.</li>
+            <li><strong>Recommended Stalls:</strong> Hawker Chan, Bismillah Biryani, or Japanese/local rice bowls — <em>~S$12–S$22 / pax</em>.</li>
+          </ul>
+          <div class="pill-row"><span class="m-tag cost">Food: S$12–S$22 / pax + ~S$3–S$6 Parking</span></div>
+        </div>
+        <div class="choice-detail p-c1-3">
+          <strong>Dine Onboard Immediately After 1:00 PM Boarding:</strong>
+          <ul>
+            <li><strong>Windjammer Marketplace (Deck 11) / Café Promenade (Deck 5):</strong> Full buffet, carving station, Asian mains &amp; desserts — <em>Included in cruise fare</em>.</li>
+            <li><strong>Specialty Lunch Upgrade (Jamie's Italian / Chops Grille):</strong> 3-course sit-down lunch — <em>~US$23–$30 (~S$31–$41) / adult; ~US$13–$15 (~S$18–$20) / child</em>.</li>
+          </ul>
+          <div class="pill-row"><span class="m-tag free">Windjammer: S$0</span><span class="m-tag cost">Specialty: ~S$31–$41 / adult</span></div>
+        </div>
+      </div>
+
+      <!-- C2: 12:25 PM - 1:30 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">12:25 PM – 1:30 PM</span></div>
+        <div class="slot-heading">Drop-Off, Boarding &amp; Day-1 App Lock-In</div>
+        <input type="radio" name="c2" id="c2-1" class="nav-state" checked />
+        <input type="radio" name="c2" id="c2-2" class="nav-state" />
+        <input type="radio" name="c2" id="c2-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c2-1" class="choice-btn">1. Check-In + eMuster Scan + Reserve Free Ice Show</label>
+          <label for="c2-2" class="choice-btn">2. Adventure Ocean Kids Club Registration (Deck 12)</label>
+          <label for="c2-3" class="choice-btn">3. Confirm 5:15 PM MDR Table Link &amp; Dining Packages</label>
+        </div>
+        <div class="choice-detail p-c2-1">
+          Drop family &amp; tagged bags at <strong>MBCCS Level 1 Departure</strong>; park on <strong>Level 3 (S$110)</strong>. Once onboard, tap your physical <strong>Muster Station</strong> first and book free passes for the <strong>Studio B Ice Skating Show</strong> in the app before slots fill up.
+          <div class="pill-row"><span class="m-tag free">All Included</span></div>
+        </div>
+        <div class="choice-detail p-c2-2">
+          Visit <strong>Adventure Ocean (Deck 12)</strong> on Day 1 afternoon for the quick open-house registration for eligible kids (Aquanauts ages 3–5, must be potty-trained) and pick up the daily schedule.
+          <div class="pill-row"><span class="m-tag free">Kids Club Free (9am–10pm)</span></div>
+        </div>
+        <div class="choice-detail p-c2-3">
+          Check in at the <strong>Main Dining Room desk (Deck 3)</strong> right after boarding to confirm your whole family is linked at the same <strong>5:15 / 5:30 PM</strong> early seating table.
+          <div class="pill-row"><span class="m-tag free">MDR Seating Free</span></div>
+        </div>
+      </div>
+
+      <!-- C3: 1:30 PM - 2:30 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">1:30 PM – 2:30 PM</span></div>
+        <div class="slot-heading">Cabins Open &amp; First-Hour Ship Action</div>
+        <input type="radio" name="c3" id="c3-1" class="nav-state" checked />
+        <input type="radio" name="c3" id="c3-2" class="nav-state" />
+        <input type="radio" name="c3" id="c3-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c3-1" class="choice-btn">1. Cabin Drop-Off + Splashaway Bay &amp; Main Pool Swim</label>
+          <label for="c3-2" class="choice-btn">2. The Blaster &amp; Riptide Waterslides + FlowRider</label>
+          <label for="c3-3" class="choice-btn">3. Observatorium Escape Room + Playmakers Arcade</label>
+        </div>
+        <div class="choice-detail p-c3-1">
+          Staterooms open around <strong>1:30–2:00 PM</strong>. Drop daypacks, change into swimwear, and enjoy the Caribbean-resort pool deck &amp; <strong>Splashaway Bay</strong> while crowds are still boarding.
+          <div class="pill-row"><span class="m-tag free">All Included</span></div>
+        </div>
+        <div class="choice-detail p-c3-2">
+          Ride <strong>The Blaster</strong> aqua coaster (min height 47") and <strong>Riptide</strong> mat racer (min height 42"), or try boogie-boarding on the <strong>FlowRider</strong> surf simulator (Deck 13) with short Day-1 queues.
+          <div class="pill-row"><span class="m-tag free">Slides &amp; FlowRider Free</span></div>
+        </div>
+        <div class="choice-detail p-c3-3">
+          Book a slot at <strong>Royal Escape Room: The Observatorium</strong> (60-min space-themed puzzle challenge) and hit the arcade games next to <strong>Playmakers Sports Bar</strong>.
+          <div class="pill-row"><span class="m-tag cost">Escape Room ~US$20–$30 (~S$27–$41)/pax • Arcade ~US$15–$30</span></div>
+        </div>
+      </div>
+
+      <!-- C4: 2:30 PM - 3:45 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">2:30 PM – 3:45 PM</span></div>
+        <div class="slot-heading">Afternoon Top-Deck Games, Spa or Snacks</div>
+        <input type="radio" name="c4" id="c4-1" class="nav-state" checked />
+        <input type="radio" name="c4" id="c4-2" class="nav-state" />
+        <input type="radio" name="c4" id="c4-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c4-1" class="choice-btn">1. Navigator Dunes Mini Golf + Pickleball / Sports Court</label>
+          <label for="c4-2" class="choice-btn">2. 30-Ft Rock Climbing Wall + Vitality Spa Tour &amp; Raffle</label>
+          <label for="c4-3" class="choice-btn">3. Solarium Quiet Lounge + El Loco Fresh &amp; Soft-Serve</label>
+        </div>
+        <div class="choice-detail p-c4-1">
+          Play 9 holes of <strong>Navigator Dunes Mini Golf</strong> (Deck 13) overlooking Marina Bay, or join open <strong>pickleball / basketball</strong> on the sports court (bring socks &amp; sneakers).
+          <div class="pill-row"><span class="m-tag free">Mini Golf &amp; Sports Free</span></div>
+        </div>
+        <div class="choice-detail p-c4-2">
+          Climb the <strong>30-ft Rock Wall</strong> (ages 6+, socks required) while adults tour <strong>Vitality Spa (Deck 11/12)</strong> for embarkation-day raffle prizes and massage specials.
+          <div class="pill-row"><span class="m-tag free">Climbing &amp; Spa Tour Free</span><span class="m-tag cost">Spa ~US$120+ (~S$160+)</span></div>
+        </div>
+        <div class="choice-detail p-c4-3">
+          Relax in the glass-canopied <strong>Solarium</strong>, grab poolside tacos/nachos at <strong>El Loco Fresh</strong>, and get free soft-serve ice cream cones for the kids.
+          <div class="pill-row"><span class="m-tag free">Solarium, Tacos &amp; Soft-Serve Free</span></div>
+        </div>
+      </div>
+
+      <!-- C5: 3:45 PM - 4:45 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">3:45 PM – 4:45 PM • Sail Away 4:00 PM</span></div>
+        <div class="slot-heading">Singapore Sail-Away &amp; Golden Hour</div>
+        <input type="radio" name="c5" id="c5-1" class="nav-state" checked />
+        <input type="radio" name="c5" id="c5-2" class="nav-state" />
+        <input type="radio" name="c5" id="c5-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c5-1" class="choice-btn">1. Bow Helipad Walk-Out (Panoramic Marina Bay Views)</label>
+          <label for="c5-2" class="choice-btn">2. Pool Deck Sail-Away Party + The Lime and Coconut</label>
+          <label for="c5-3" class="choice-btn">3. Unpack Luggage + Royal Promenade Pre-Dinner Stroll</label>
+        </div>
+        <div class="choice-detail p-c5-1">
+          Walk forward along <strong>Deck 4</strong> outer promenade and up the stairs to the ship's <strong>bow Helipad</strong> for unobstructed 360-degree views of Marina Bay Sands as you sail out at 4:00 PM.
+          <div class="pill-row"><span class="m-tag free">Free Guest Access (Weather Permitting)</span></div>
+        </div>
+        <div class="choice-detail p-c5-2">
+          Join the live DJ sail-away party on <strong>Deck 11/12</strong> with tropical drinks from the multi-level <strong>The Lime and Coconut</strong> bar.
+          <div class="pill-row"><span class="m-tag free">DJ Party Free</span><span class="m-tag cost">Cocktails ~US$14 (~S$19)</span></div>
+        </div>
+        <div class="choice-detail p-c5-3">
+          Unpack suitcases delivered outside your cabin doors and stroll the air-conditioned <strong>Royal Promenade (Deck 5)</strong> for family photos before dinner.
+          <div class="pill-row"><span class="m-tag free">Included</span></div>
+        </div>
+      </div>
+
+      <!-- C6: 5:00 PM Dinner -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">5:00 PM – 6:45 PM</span></div>
+        <div class="slot-heading">Early Family Dinner</div>
+        <input type="radio" name="c6" id="c6-1" class="nav-state" checked />
+        <input type="radio" name="c6" id="c6-2" class="nav-state" />
+        <input type="radio" name="c6" id="c6-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c6-1" class="choice-btn">1. Main Dining Room (5:15 / 5:30 PM Early Seating)</label>
+          <label for="c6-2" class="choice-btn">2. Windjammer Buffet (Opens ~5:30 PM)</label>
+          <label for="c6-3" class="choice-btn">3. Jamie's Italian / Chops Grille (Specialty Dinner)</label>
+        </div>
+        <div class="choice-detail p-c6-1">
+          Waiter-served 3-course dinner on Decks 3–5 with Western/Asian mains and a fast kids menu.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c6-2">
+          Quick, casual buffet on Deck 11—great if the kids want to eat fast before the evening theater show.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c6-3">
+          <strong>Jamie's Italian</strong> (fresh handmade pasta &amp; sharing planks) or <strong>Chops Grille</strong> (steaks &amp; seafood).
+          <div class="pill-row"><span class="m-tag cost">Jamie's ~US$55 (~S$74)/adult • Chops ~US$70 (~S$95)/adult • Kids ~US$15 (~S$20)</span></div>
+        </div>
+      </div>
+
+      <!-- C7: 8:00 PM - 12:00 AM -->
+      <div class="slot-card night-mode">
+        <div class="slot-meta"><span class="time-badge">8:00 PM – 12:00 AM • Adults Night Out</span></div>
+        <div class="slot-heading">Evening Show &amp; Late-Night Supper (Kids With Mum)</div>
+        <input type="radio" name="c7" id="c7-1" class="nav-state" checked />
+        <input type="radio" name="c7" id="c7-2" class="nav-state" />
+        <input type="radio" name="c7" id="c7-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c7-1" class="choice-btn">1. Welcome Show + Live Pub Music + Midnight Pizza</label>
+          <label for="c7-2" class="choice-btn">2. Tiki Cocktails (Bamboo Room) + Playmakers Supper</label>
+          <label for="c7-3" class="choice-btn">3. Casino Royale + Starlit Solarium Hot Tubs</label>
+        </div>
+        <div class="choice-detail p-c7-1">
+          Watch the <strong>Welcome Aboard Show</strong> in the Royal Theater, enjoy live acoustic sets at <strong>Copper &amp; Clover Pub</strong> (Deck 5), and grab free late-night pizza/paninis at <strong>Café Promenade (open 24 hrs)</strong> before midnight.
+          <div class="pill-row"><span class="m-tag free">Show &amp; Café Promenade Free</span><span class="m-tag cost">Pub Drinks ~US$9–$15 (~S$12–$20)</span></div>
+        </div>
+        <div class="choice-detail p-c7-2">
+          Sip tiki cocktails at <strong>The Bamboo Room</strong> (Deck 5) followed by late-night buffalo wings, nachos, or burgers at <strong>Playmakers Sports Bar</strong>.
+          <div class="pill-row"><span class="m-tag cost">Cocktails ~US$14 (~S$19) • Playmakers Food ~US$8–$16 (~S$11–$22)</span></div>
+        </div>
+        <div class="choice-detail p-c7-3">
+          Visit <strong>Casino Royale</strong> (Deck 4, open late at sea) or soak in the quiet adults-only <strong>Solarium whirlpools</strong> under the stars on Deck 11.
+          <div class="pill-row"><span class="m-tag free">Solarium Free</span><span class="m-tag night">Adults Only</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DAY 2 ==================== -->
+    <section id="panel-2" class="deck-panel">
+      <div class="day-banner">
+        <h2>Day 2 • Fri, 18 Dec — George Town, Penang</h2>
+        <span class="port-chip">Docked 3:00 PM – 11:00 PM</span>
+      </div>
+
+      <!-- C8: 8:00 AM - 10:00 AM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">8:00 AM – 10:00 AM</span></div>
+        <div class="slot-heading">Wake-Up &amp; Ocean-View Breakfast (9:00 AM)</div>
+        <input type="radio" name="c8" id="c8-1" class="nav-state" checked />
+        <input type="radio" name="c8" id="c8-2" class="nav-state" />
+        <input type="radio" name="c8" id="c8-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c8-1" class="choice-btn">1. Windjammer Marketplace Buffet (9:00 AM Family Spread)</label>
+          <label for="c8-2" class="choice-btn">2. Main Dining Room Sit-Down Breakfast (Deck 3)</label>
+          <label for="c8-3" class="choice-btn">3. Cabin Room Service Breakfast + Café Promenade Coffee</label>
+        </div>
+        <div class="choice-detail p-c8-1">
+          Wake at <strong>8:00 AM</strong> and head to Deck 11 at <strong>9:00 AM</strong> for made-to-order omelets, pancakes, congee, noodles, and fresh tropical fruit.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c8-2">
+          Quiet, table-served breakfast with Eggs Benedict, French toast, and fresh juice—easy for seniors without carrying buffet trays.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c8-3">
+          Continental breakfast (pastries, fruit, coffee/tea) delivered to your cabin is complimentary; hot American breakfast items carry a flat room-service fee.
+          <div class="pill-row"><span class="m-tag free">Continental Free</span><span class="m-tag cost">Hot Room Service ~US$7.95 + 18% (~S$13)/order</span></div>
+        </div>
+      </div>
+
+      <!-- C9: 10:00 AM - 12:00 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">10:00 AM – 12:00 PM</span></div>
+        <div class="slot-heading">Morning Cruise Activities (Sailing North)</div>
+        <input type="radio" name="c9" id="c9-1" class="nav-state" checked />
+        <input type="radio" name="c9" id="c9-2" class="nav-state" />
+        <input type="radio" name="c9" id="c9-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c9-1" class="choice-btn">1. Adventure Ocean Kids Club + Solarium &amp; Waterslides</label>
+          <label for="c9-2" class="choice-btn">2. Poolside Games, Belly Flop Contest &amp; Splashaway Bay</label>
+          <label for="c9-3" class="choice-btn">3. Morning Gym / Jogging Track (Deck 12) + Spa Session</label>
+        </div>
+        <div class="choice-detail p-c9-1">
+          Check eligible kids into <strong>Adventure Ocean (9am–12pm session)</strong> while adults enjoy quiet pool time in the Solarium or ride <strong>The Blaster</strong> &amp; <strong>FlowRider</strong>.
+          <div class="pill-row"><span class="m-tag free">Kids Club, Solarium &amp; Slides Free</span></div>
+        </div>
+        <div class="choice-detail p-c9-2">
+          Stay together on Deck 11 for morning family swimming, live Caribbean band music, and Royal Caribbean's classic poolside entertainment.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c9-3">
+          Run laps on the open-air <strong>Deck 12 Jogging Track</strong> overlooking the Strait of Malacca or hit the ocean-view fitness center / Vitality Spa.
+          <div class="pill-row"><span class="m-tag free">Gym &amp; Track Free</span><span class="m-tag cost">Spa ~US$120+ (~S$160+)</span></div>
+        </div>
+      </div>
+
+      <!-- C10: 12:00 PM - 3:00 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">12:00 PM – 3:00 PM</span></div>
+        <div class="slot-heading">12:00 PM Pre-Port Lunch &amp; Cabin Recharge</div>
+        <input type="radio" name="c10" id="c10-1" class="nav-state" checked />
+        <input type="radio" name="c10" id="c10-2" class="nav-state" />
+        <input type="radio" name="c10" id="c10-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c10-1" class="choice-btn">1. Windjammer 12pm Lunch + 1:30pm Kids Nap Before Port</label>
+          <label for="c10-2" class="choice-btn">2. El Loco Fresh Poolside Tacos + Afternoon Deck Arrival</label>
+          <label for="c10-3" class="choice-btn">3. Johnny Rockets Burgers &amp; Shakes + MDAC Prep</label>
+        </div>
+        <div class="choice-detail p-c10-1">
+          Eat a full <strong>12:00 PM lunch</strong> onboard so kids and seniors aren't hungry when the ship clears Penang immigration at 3:00 PM, leaving 1:30–2:45 PM for a quick nap and sunscreen prep.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c10-2">
+          Casual open-air lunch at <strong>El Loco Fresh</strong> (Deck 11), then watch the ship glide under the Penang Bridge and pull into Swettenham Pier around 2:30–3:00 PM.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c10-3">
+          1950s diner burgers, fries, and hand-spun milkshakes at <strong>Johnny Rockets (Deck 12)</strong> before gathering passports and MYR cash for shore exit.
+          <div class="pill-row"><span class="m-tag cost">Johnny Rockets ~US$13–$15 (~S$18–$20) / pax</span></div>
+        </div>
+      </div>
+
+      <!-- C11: 3:15 PM - 5:00 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">3:15 PM – 5:00 PM</span></div>
+        <div class="slot-heading">Penang Afternoon Exploration</div>
+        <input type="radio" name="c11" id="c11-1" class="nav-state" checked />
+        <input type="radio" name="c11" id="c11-2" class="nav-state" />
+        <input type="radio" name="c11" id="c11-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c11-1" class="choice-btn">1. George Town Trishaw Tour (Armenian St &amp; Clan Jetties)</label>
+          <label for="c11-2" class="choice-btn">2. Penang Hill Funicular Train &amp; SkyWalk</label>
+          <label for="c11-3" class="choice-btn">3. Stay Onboard (Empty Pools &amp; Zero Slide Queues)</label>
+        </div>
+        <div class="choice-detail p-c11-1">
+          Walk straight off Swettenham Pier (right in George Town) and hire trishaws to ride past street-art murals, Chew Jetty, and Fort Cornwallis with minimal walking for seniors and kids.
+          <div class="pill-row"><span class="m-tag cost">Trishaw ~RM 40–50 / hr (~S$12–$16)</span></div>
+        </div>
+        <div class="choice-detail p-c11-2">
+          Take 6-seater Grab cars (~25 mins) to Penang Hill Lower Station and ride the steep funicular railway up for cool 22°C hilltop views of George Town.
+          <div class="pill-row"><span class="m-tag cost">Funicular ~RM 30–40/adult (~S$9–$12) + Grab ~RM 20–30/way</span></div>
+        </div>
+        <div class="choice-detail p-c11-3">
+          With most passengers ashore, enjoy virtually empty pools, whirlpools, and waterslides on Deck 11/13.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+      </div>
+
+      <!-- C12: 5:00 PM - 7:30 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">5:00 PM – 7:30 PM</span></div>
+        <div class="slot-heading">Early Penang Dinner &amp; Drop Kids/Seniors Back</div>
+        <input type="radio" name="c12" id="c12-1" class="nav-state" checked />
+        <input type="radio" name="c12" id="c12-2" class="nav-state" />
+        <input type="radio" name="c12" id="c12-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c12-1" class="choice-btn">1. Tek Sen Restaurant / ChinaHouse (Air-Con Heritage Dinner)</label>
+          <label for="c12-2" class="choice-btn">2. Gurney Drive Hawker Centre / Gurney Plaza Dinner</label>
+          <label for="c12-3" class="choice-btn">3. Return Onboard for 5:15 PM Main Dining Room Dinner</label>
+        </div>
+        <div class="choice-detail p-c12-1">
+          Dine in air-conditioned comfort at <strong>Tek Sen Restaurant</strong> (Carnarvon St — double-roasted pork &amp; home-style dishes) or <strong>ChinaHouse</strong> (Beach St — cakes &amp; mains), then Grab back to Swettenham Pier by 7:15 PM.
+          <div class="pill-row"><span class="m-tag cost">Est. RM 35–60 / pax (~S$11–$18) + Grab ~RM 8–12</span></div>
+        </div>
+        <div class="choice-detail p-c12-2">
+          Head to Gurney Plaza (air-con restaurants) or Gurney Drive Hawker Centre (opens ~5:00 PM for char kway teow, assam laksa &amp; rojak) before returning to the ship.
+          <div class="pill-row"><span class="m-tag cost">Hawker RM 15–30 / pax (~S$5–$9) • Mall RM 35–55 / pax</span></div>
+        </div>
+        <div class="choice-detail p-c12-3">
+          Walk back onto the ship by 5:00 PM for full waiter service in the <strong>Main Dining Room</strong> or casual buffet at Windjammer.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+      </div>
+
+      <!-- C13: 8:00 PM - 12:00 AM -->
+      <div class="slot-card night-mode">
+        <div class="slot-meta"><span class="time-badge">8:00 PM – 12:00 AM • All Aboard 10:30 PM / Sail 11:00 PM</span></div>
+        <div class="slot-heading">Penang Night Supper &amp; Midnight Deck Party (Kids With Mum)</div>
+        <input type="radio" name="c13" id="c13-1" class="nav-state" checked />
+        <input type="radio" name="c13-2" class="nav-state" />
+        <input type="radio" name="c13-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c13-1" class="choice-btn">1. Kimberley St / Chulia St Hawker Supper (Back by 10:15 PM)</label>
+          <label for="c13-2" class="choice-btn">2. Love Lane Bars + Penang Road Nasi Kandar Supper</label>
+          <label for="c13-3" class="choice-btn">3. Onboard 11:00 PM Sail-Away Party + Late-Night Lounge</label>
+        </div>
+        <div class="choice-detail p-c13-1">
+          After settling kids with Mum onboard at 7:30 PM, take a 5-min Grab to <strong>Kimberley Street</strong> (duck koay chap, char kway teow, oyster omelette) or <strong>Chulia Street Night Market</strong> (wantan mee, curry mee, satay, lok lok). Be back at Swettenham Pier by <strong>10:15 PM</strong> sharp!
+          <div class="pill-row"><span class="m-tag cost">Supper ~RM 15–30/pax (~S$5–$9) + Grab ~RM 8–12</span><span class="m-tag night">All Aboard 10:30 PM</span></div>
+        </div>
+        <div class="choice-detail p-c13-2">
+          Have a drink along heritage <strong>Love Lane</strong> (5 mins from pier), followed by sup kambing or nasi kandar at <strong>Sup Hameed / Nasi Kandar Beratur</strong> on Penang Road before boarding by 10:15 PM.
+          <div class="pill-row"><span class="m-tag cost">Drinks + Supper ~RM 35–60/pax (~S$11–$18)</span></div>
+        </div>
+        <div class="choice-detail p-c13-3">
+          Celebrate the <strong>11:00 PM Penang Sail-Away</strong> under the stars at <strong>The Lime and Coconut</strong> pool bar (DJ &amp; live music), followed by late-night karaoke/dancing at <strong>Cosmopolitan Club (Deck 14)</strong>.
+          <div class="pill-row"><span class="m-tag free">Music &amp; Dancing Free</span><span class="m-tag cost">Cocktails ~US$14 (~S$19)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DAY 3 ==================== -->
+    <section id="panel-3" class="deck-panel">
+      <div class="day-banner">
+        <h2>Day 3 • Sat, 19 Dec — Full Day at Sea</h2>
+        <span class="port-chip">Cruising South • Unlimited Resort Fun</span>
+      </div>
+
+      <!-- C14: 8:00 AM - 10:00 AM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">8:00 AM – 10:00 AM</span></div>
+        <div class="slot-heading">Sea Day Wake-Up &amp; Breakfast (9:00 AM)</div>
+        <input type="radio" name="c14" id="c14-1" class="nav-state" checked />
+        <input type="radio" name="c14" id="c14-2" class="nav-state" />
+        <input type="radio" name="c14" id="c14-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c14-1" class="choice-btn">1. Main Dining Room Sit-Down Breakfast (9:00 AM)</label>
+          <label for="c14-2" class="choice-btn">2. Windjammer Buffet + Early Adventure Ocean Drop-Off</label>
+          <label for="c14-3" class="choice-btn">3. Café Promenade Pastries + Ocean-View Walk</label>
+        </div>
+        <div class="choice-detail p-c14-1">
+          Enjoy an unhurried table-served breakfast on Deck 3 before the sea-day activities kick off.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c14-2">
+          Quick breakfast at Windjammer (Deck 11) so kids can join the <strong>9:00 AM–12:00 PM Adventure Ocean</strong> morning crafts and games.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c14-3">
+          Grab complimentary croissants, fruit, and coffee/tea at Café Promenade (Deck 5) and take a breezy morning stroll along Deck 4.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+      </div>
+
+      <!-- C15: 10:00 AM - 12:00 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">10:00 AM – 12:00 PM</span></div>
+        <div class="slot-heading">Sea Day Morning Thrills &amp; Family Time</div>
+        <input type="radio" name="c15" id="c15-1" class="nav-state" checked />
+        <input type="radio" name="c15" id="c15-2" class="nav-state" />
+        <input type="radio" name="c15" id="c15-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c15-1" class="choice-btn">1. Kids Club + The Blaster, Riptide &amp; FlowRider</label>
+          <label for="c15-2" class="choice-btn">2. All-Family Pool, Splashaway Bay &amp; Mini Golf</label>
+          <label for="c15-3" class="choice-btn">3. Vitality Spa / Solarium + Promenade Duty-Free Shops</label>
+        </div>
+        <div class="choice-detail p-c15-1">
+          While eligible kids play in <strong>Adventure Ocean</strong>, adults conquer <strong>The Blaster</strong> aqua coaster, <strong>Riptide</strong> mat racer, and <strong>FlowRider</strong> surf simulator.
+          <div class="pill-row"><span class="m-tag free">All Included</span></div>
+        </div>
+        <div class="choice-detail p-c15-2">
+          Family pool &amp; whirlpool session on Deck 11 followed by 9 holes of <strong>Navigator Dunes Mini Golf</strong> on Deck 13.
+          <div class="pill-row"><span class="m-tag free">All Included</span></div>
+        </div>
+        <div class="choice-detail p-c15-3">
+          Unwind in the adults-only <strong>Solarium</strong>, book a massage at <strong>Vitality Spa</strong>, or browse sea-day watch &amp; souvenir sales on the Royal Promenade.
+          <div class="pill-row"><span class="m-tag free">Solarium Free</span><span class="m-tag cost">Spa ~US$120+ (~S$160+)</span></div>
+        </div>
+      </div>
+
+      <!-- C16: 12:00 PM - 2:00 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">12:00 PM – 2:00 PM</span></div>
+        <div class="slot-heading">Sea Day Lunch (12:00 PM)</div>
+        <input type="radio" name="c16" id="c16-1" class="nav-state" checked />
+        <input type="radio" name="c16" id="c16-2" class="nav-state" />
+        <input type="radio" name="c16" id="c16-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c16-1" class="choice-btn">1. Main Dining Room Sea-Day Special Lunch (12:00 PM)</label>
+          <label for="c16-2" class="choice-btn">2. Windjammer Sea-Day Seafood &amp; Carving Buffet</label>
+          <label for="c16-3" class="choice-btn">3. Jamie's Italian / Chops Grille / Izumi Lunch Upgrade</label>
+        </div>
+        <div class="choice-detail p-c16-1">
+          Sit-down 3-course sea-day lunch in the Main Dining Room (features the famous Tutti Salad bar &amp; rotating mains).
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c16-2">
+          Expanded sea-day buffet spread on Deck 11 with Asian curries, carving station, pasta, and dessert bar.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c16-3">
+          Treat the family to a specialty sit-down lunch at <strong>Jamie's Italian</strong>, <strong>Chops Grille</strong>, or sushi/teppanyaki at <strong>Izumi</strong>.
+          <div class="pill-row"><span class="m-tag cost">Specialty Lunch ~US$23–$35 (~S$31–$47)/adult</span></div>
+        </div>
+      </div>
+
+      <!-- C17: 2:00 PM - 5:00 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">2:00 PM – 5:00 PM</span></div>
+        <div class="slot-heading">Afternoon Ice Show, Skating &amp; Games</div>
+        <input type="radio" name="c17" id="c17-1" class="nav-state" checked />
+        <input type="radio" name="c17" id="c17-2" class="nav-state" />
+        <input type="radio" name="c17" id="c17-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c17-1" class="choice-btn">1. Studio B Ice Skating Show + Laser Tag (Battle for Planet Z)</label>
+          <label for="c17-2" class="choice-btn">2. Family Open Ice Skating + Cabin Nap Before Dinner</label>
+          <label for="c17-3" class="choice-btn">3. Star Lounge Family Trivia + Playmakers Arcade</label>
+        </div>
+        <div class="choice-detail p-c17-1">
+          Watch the dazzling figure skating show at <strong>Studio B (Deck 3)</strong> (use your free Day-1 app reservation), then play glow-in-the-dark <strong>Laser Tag</strong> (ages 5+).
+          <div class="pill-row"><span class="m-tag free">Ice Show Free</span><span class="m-tag cost">Laser Tag (if paid session) ~US$10–$15 (~S$14–$20)</span></div>
+        </div>
+        <div class="choice-detail p-c17-2">
+          Strap on complimentary ice skates at Studio B (bring long pants &amp; socks) or let kids &amp; seniors rest before the 5:00 PM farewell dinner.
+          <div class="pill-row"><span class="m-tag free">All Included</span></div>
+        </div>
+        <div class="choice-detail p-c17-3">
+          Team up for afternoon family trivia in <strong>Star Lounge (Deck 5)</strong> and hit the arcade games next to Playmakers.
+          <div class="pill-row"><span class="m-tag free">Trivia Free</span><span class="m-tag cost">Arcade ~US$15–$30 (~S$20–$40)</span></div>
+        </div>
+      </div>
+
+      <!-- C18: 5:00 PM - 7:30 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">5:00 PM – 7:30 PM</span></div>
+        <div class="slot-heading">Final Night Early Dinner &amp; Family Photos</div>
+        <input type="radio" name="c18" id="c18-1" class="nav-state" checked />
+        <input type="radio" name="c18" id="c18-2" class="nav-state" />
+        <input type="radio" name="c18" id="c18-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c18-1" class="choice-btn">1. Main Dining Room Farewell Dinner (5:15 / 5:30 PM)</label>
+          <label for="c18-2" class="choice-btn">2. Specialty Celebration Dinner (Chops Grille / Jamie's)</label>
+          <label for="c18-3" class="choice-btn">3. Windjammer Dinner + Royal Promenade Family Portraits</label>
+        </div>
+        <div class="choice-detail p-c18-1">
+          Enjoy the final-night MDR menu (often includes surf &amp; turf / prime rib and waiter singing parade), then take group photos on the Royal Promenade staircase.
+          <div class="pill-row"><span class="m-tag free">Dinner Included</span><span class="m-tag cost">Optional Digital Photo ~US$20–$25 (~S$27–$34)</span></div>
+        </div>
+        <div class="choice-detail p-c18-2">
+          Celebrate the final night with dry-aged steaks at <strong>Chops Grille</strong> or family-style Italian at <strong>Jamie's Italian</strong>.
+          <div class="pill-row"><span class="m-tag cost">~US$55–$70 (~S$74–$95)/adult • Kids ~US$15 (~S$20)</span></div>
+        </div>
+        <div class="choice-detail p-c18-3">
+          Easy, flexible buffet dinner on Deck 11 followed by sunset deck photos before packing bags (leave tagged suitcases outside cabin doors by 10:00 PM).
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+      </div>
+
+      <!-- C19: 8:00 PM - 12:00 AM -->
+      <div class="slot-card night-mode">
+        <div class="slot-meta"><span class="time-badge">8:00 PM – 12:00 AM • Final Night at Sea</span></div>
+        <div class="slot-heading">Late-Night Party, Shows &amp; Supper (Kids With Mum)</div>
+        <input type="radio" name="c19" id="c19-1" class="nav-state" checked />
+        <input type="radio" name="c19" id="c19-2" class="nav-state" />
+        <input type="radio" name="c19" id="c19-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c19-1" class="choice-btn">1. Headliner Show + Crazy Quest / RED Party at Studio B</label>
+          <label for="c19-2" class="choice-btn">2. Schooner Bar Piano Sing-Along + Midnight Café Promenade</label>
+          <label for="c19-3" class="choice-btn">3. Poolside Movie Under the Stars + Cabin Room Service</label>
+        </div>
+        <div class="choice-detail p-c19-1">
+          After putting luggage outside your door by 10:00 PM, watch the theater show and head to <strong>Studio B (Deck 3)</strong> for the adults-only <strong>Crazy Quest</strong> game show or themed <strong>RED Dance Party</strong>.
+          <div class="pill-row"><span class="m-tag free">Entertainment Free</span><span class="m-tag night">18+ Late Night</span></div>
+        </div>
+        <div class="choice-detail p-c19-2">
+          Enjoy live piano &amp; cocktails at <strong>Schooner Bar (Deck 4)</strong>, then grab warm pizza, sandwiches, and pastries at <strong>Café Promenade</strong> around 11:30 PM.
+          <div class="pill-row"><span class="m-tag free">Café Promenade Free</span><span class="m-tag cost">Cocktails ~US$14 (~S$19)</span></div>
+        </div>
+        <div class="choice-detail p-c19-3">
+          Watch a late-night movie on the outdoor Deck 11 screen or order hot wings, burgers, and desserts to your cabin via <strong>24-Hour Room Service</strong>.
+          <div class="pill-row"><span class="m-tag free">Pool Movie Free</span><span class="m-tag cost">Late Room Service ~US$7.95 + 18% (~S$13)/order</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DAY 4 ==================== -->
+    <section id="panel-4" class="deck-panel">
+      <div class="day-banner">
+        <h2>Day 4 • Sun, 20 Dec — Welcome Home to Singapore</h2>
+        <span class="port-chip">Dock 7:00 AM • Off Ship ~8:30–9:30 AM</span>
+      </div>
+
+      <!-- C20: 7:00 AM - 8:30 AM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">7:00 AM – 8:30 AM</span></div>
+        <div class="slot-heading">Marina Bay Arrival &amp; Farewell Breakfast</div>
+        <input type="radio" name="c20" id="c20-1" class="nav-state" checked />
+        <input type="radio" name="c20" id="c20-2" class="nav-state" />
+        <input type="radio" name="c20" id="c20-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c20-1" class="choice-btn">1. Vacate Cabins by 8:00 AM + Windjammer Farewell Breakfast</label>
+          <label for="c20-2" class="choice-btn">2. Main Dining Room Sit-Down Final Breakfast</label>
+          <label for="c20-3" class="choice-btn">3. Quick Coffee &amp; Pastries at Café Promenade (Fast Exit)</label>
+        </div>
+        <div class="choice-detail p-c20-1">
+          Do a final sweep of cabin safes, chargers, and under-bed storage by 8:00 AM, then enjoy a full hot breakfast at Windjammer (Deck 11) while waiting for your luggage tag group to be called.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c20-2">
+          Calm, waiter-served final breakfast in the Main Dining Room (opens early on disembarkation morning, typically 6:30–8:30 AM) so seniors and kids stay comfortable.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+        <div class="choice-detail p-c20-3">
+          Grab coffee and croissants on Deck 5 if you plan to walk off early and have brunch back in Singapore.
+          <div class="pill-row"><span class="m-tag free">Included in Fare</span></div>
+        </div>
+      </div>
+
+      <!-- C21: 8:30 AM - 9:45 AM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">8:30 AM – 9:45 AM</span></div>
+        <div class="slot-heading">Disembarkation &amp; MBCCS Level 3 Car Retrieval</div>
+        <input type="radio" name="c21" id="c21-1" class="nav-state" checked />
+        <input type="radio" name="c21" id="c21-2" class="nav-state" />
+        <input type="radio" name="c21" id="c21-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c21-1" class="choice-btn">1. Standard Tag-Number Disembarkation (~8:45–9:15 AM)</label>
+          <label for="c21-2" class="choice-btn">2. Express Self-Assist Walk-Off (~7:30 AM Early Exit)</label>
+          <label for="c21-3" class="choice-btn">3. Staggered Driver Fetch (Drivers Get Cars While Family Waits)</label>
+        </div>
+        <div class="choice-detail p-c21-1">
+          Walk off when your luggage tag number appears on the ship screens, pick up suitcases in the MBCCS baggage hall, clear ICA automated gates, and take the lift straight to <strong>Level 3</strong>.
+          <div class="pill-row"><span class="m-tag free">No Heavy Lifting</span></div>
+        </div>
+        <div class="choice-detail p-c21-2">
+          Carry all your own suitcases off as soon as gangways open (~7:15–7:30 AM) to beat terminal queues.
+          <div class="pill-row"><span class="m-tag">Fastest Exit</span></div>
+        </div>
+        <div class="choice-detail p-c21-3">
+          Have your mother and the kids wait comfortably in the shaded Level 1 pick-up foyer while the drivers take the lift to <strong>Level 3</strong> and pull the cars down to load luggage.
+          <div class="pill-row"><span class="m-tag">Best for Seniors &amp; Kids</span></div>
+        </div>
+      </div>
+
+      <!-- C22: 10:00 AM - 12:00 PM -->
+      <div class="slot-card">
+        <div class="slot-meta"><span class="time-badge">10:00 AM – 12:00 PM</span></div>
+        <div class="slot-heading">Post-Cruise Sunday Brunch Before Heading Home</div>
+        <input type="radio" name="c22" id="c22-1" class="nav-state" checked />
+        <input type="radio" name="c22" id="c22-2" class="nav-state" />
+        <input type="radio" name="c22" id="c22-3" class="nav-state" />
+        <div class="choice-stack">
+          <label for="c22-1" class="choice-btn">1. Drive Straight Home &amp; Unpack</label>
+          <label for="c22-2" class="choice-btn">2. Sunday Dim Sum Stop (Tanjong Pagar / Chinatown)</label>
+          <label for="c22-3" class="choice-btn">3. Casual Kopitiam / Kaya Toast &amp; Kopi Stop</label>
+        </div>
+        <div class="choice-detail p-c22-1">
+          Head straight home from MBCCS via MCE/AYE before Sunday lunch traffic builds, leaving the rest of Sunday to unpack and do laundry.
+          <div class="pill-row"><span class="m-tag free">S$0 Extra</span></div>
+        </div>
+        <div class="choice-detail p-c22-2">
+          Celebrate the end of the holiday with a family Sunday dim sum brunch (e.g., Yum Cha Chinatown or Tanjong Pagar) just 6–8 minutes from the cruise terminal.
+          <div class="pill-row"><span class="m-tag cost">Est. S$18–S$32 / pax</span></div>
+        </div>
+        <div class="choice-detail p-c22-3">
+          Stop by a local air-conditioned kopitiam or Ya Kun / Toast Box for familiar Singapore kopi, soft-boiled eggs, and local noodles after 3 days of cruise food.
+          <div class="pill-row"><span class="m-tag cost">Est. S$6–S$12 / pax</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PRICES & INFO ==================== -->
+    <section id="panel-5" class="deck-panel">
+      <div class="day-banner">
+        <h2>Budget Guide, Parking &amp; Sailing Notes</h2>
+        <span class="port-chip">MBCCS &amp; Onboard Estimates</span>
+      </div>
+
+      <div class="slot-card">
+        <div class="parking-hero">
+          <strong>MBCCS Advance Carpark Package: S$110 / vehicle (4D3N)</strong><br />
+          Book online before 17 Dec and park strictly on <strong>Level 3</strong>. Walk-in hourly parking on Level 2 works out to roughly <strong>~S$204</strong> for 72 hours, while nearby Marina South Pier is roughly <strong>~S$137</strong>.
+          <br />
+          <a class="port-btn" href="https://mbccs.com.sg/advance-carpark-reservation" target="_blank" rel="noopener">MBCCS Advance Parking Info</a>
+        </div>
+
+        <div class="slot-heading">Complete Cost Reference (Estimated)</div>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Category / Venue</th>
+              <th>Estimated Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Included Dining &amp; Fun</strong><br />Main Dining Room, Windjammer, Café Promenade, El Loco Fresh, Pools, Slides, FlowRider, Mini Golf, Ice Show, Adventure Ocean</td>
+              <td><strong>S$0</strong> (Included in cruise fare)</td>
+            </tr>
+            <tr>
+              <td><strong>Specialty Lunch</strong><br />Jamie's Italian / Chops Grille</td>
+              <td>~US$23–$30 (~S$31–$41) / adult<br />~US$13–$15 (~S$18–$20) / child</td>
+            </tr>
+            <tr>
+              <td><strong>Specialty Dinner</strong><br />Jamie's Italian / Chops Grille</td>
+              <td>~US$55–$70 (~S$74–$95) / adult<br />~US$15 (~S$20) / child</td>
+            </tr>
+            <tr>
+              <td><strong>Onboard Drinks &amp; Late Room Service</strong></td>
+              <td>Specialty Coffee ~US$4–$6 (~S$5–$8)<br />Beer ~US$8–$10 (~S$11–$14)<br />Cocktails ~US$14 (~S$19)<br />Hot Room Service ~US$7.95 + 18% (~S$13)/order</td>
+            </tr>
+            <tr>
+              <td><strong>Penang Transport &amp; Food (Day 2)</strong></td>
+              <td>Trishaw ~RM 40–50/hr (~S$12–$16)<br />Penang Hill Train ~RM 30–40 (~S$9–$12)<br />Dinner ~RM 35–60/pax (~S$11–$18)<br />Night Hawker Supper ~RM 15–30/pax (~S$5–$9)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 0.76rem; color: var(--muted); margin-top: 0.55rem;">
+          *Royal Caribbean onboard charges are billed in USD (plus 18% gratuity on drinks, specialty dining, and spa) and vary by sailing promotion; check live rates in the Royal Caribbean app.
+        </p>
+      </div>
+
+      <div class="slot-card">
+        <div class="slot-heading">Pre-Sailing Family Checklist</div>
+        <label class="check-row"><input type="checkbox" /><span>Passports (6+ months validity) &amp; SetSail Passes for all guests</span></label>
+        <label class="check-row"><input type="checkbox" /><span>MBCCS Level 3 advance parking confirmation saved</span></label>
+        <label class="check-row"><input type="checkbox" /><span>Malaysia Digital Arrival Card (MDAC) checked/submitted ahead of 18 Dec</span></label>
+        <label class="check-row"><input type="checkbox" /><span>Swimwear, daily medications, long pants/socks (for ice skating) &amp; light layers for AC</span></label>
+        <label class="check-row"><input type="checkbox" /><span>Small MYR cash (RM 150–300) + Grab app ready for Penang</span></label>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
