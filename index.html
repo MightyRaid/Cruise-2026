@@ -3,22 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navigator of the Seas | 4D3N Singapore – Penang Voyage (17–20 Dec)</title>
+  <title>Navigator of the Seas | 4D3N Holiday Voyage (17–20 Dec)</title>
   <style>
     :root {
-      --hull: #091e36;
-      --sea: #0b4f78;
-      --lagoon: #137a9c;
-      --foam: #eef6fa;
-      --brass: #c9973b;
-      --brass-light: #f6ebd2;
-      --sand: #f4f1ea;
+      --deep-ocean: #06283d;
+      --lagoon: #0e7490;
+      --aqua: #06b6d4;
+      --coral: #f97316;
+      --coral-soft: #fff7ed;
+      --sun: #f59e0b;
+      --sun-soft: #fef3c7;
+      --sand: #fbf8f3;
       --card: #ffffff;
-      --ink: #162433;
-      --muted: #5c6f82;
-      --line: #d9e3ec;
-      --night: #172554;
-      --night-bg: #eef2ff;
+      --ink: #132a3e;
+      --muted: #52687a;
+      --border: #e2e8f0;
+      --mint-bg: #ecfdf5;
+      --mint-ink: #065f46;
+      --twilight: #1e1b4b;
+      --twilight-bg: #eef2ff;
     }
 
     * {
@@ -31,10 +34,13 @@
     html, body {
       max-width: 100%;
       overflow-x: hidden;
-      background-color: var(--sand);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(6, 182, 212, 0.08), transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(249, 115, 22, 0.08), transparent 40%),
+        var(--sand);
       color: var(--ink);
       line-height: 1.5;
-      padding-bottom: 3rem;
+      padding-bottom: 3.5rem;
     }
 
     input.nav-state {
@@ -43,91 +49,113 @@
       pointer-events: none;
     }
 
-    .voyage-header {
+    /* Tropical Sunset & Ocean Liner Hero */
+    .hero {
+      position: relative;
       background:
-        radial-gradient(circle at 85% 15%, rgba(201, 151, 59, 0.24), transparent 45%),
-        linear-gradient(160deg, var(--hull) 0%, var(--sea) 62%, var(--lagoon) 100%);
+        radial-gradient(circle at 88% 18%, rgba(249, 115, 22, 0.35), transparent 42%),
+        radial-gradient(circle at 15% 80%, rgba(6, 182, 212, 0.3), transparent 50%),
+        linear-gradient(145deg, #041f33 0%, #0a4d68 55%, #088395 100%);
       color: #ffffff;
-      padding: 1.85rem 1rem 2.75rem;
+      padding: 2rem 1rem 3.4rem;
       text-align: center;
-      border-bottom: 4px solid var(--brass);
+      overflow: hidden;
     }
 
-    .voyage-tag {
-      display: inline-block;
-      background: rgba(201, 151, 59, 0.22);
-      border: 1px solid rgba(246, 235, 210, 0.45);
-      color: var(--brass-light);
-      padding: 0.28rem 0.85rem;
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 24px;
+      background: var(--sand);
+      border-top-left-radius: 50% 24px;
+      border-top-right-radius: 50% 24px;
+    }
+
+    .boarding-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fef3c7;
+      padding: 0.3rem 0.9rem;
       border-radius: 999px;
       font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.65rem;
     }
 
-    .voyage-header h1 {
-      font-size: 1.55rem;
+    .hero h1 {
+      font-size: 1.65rem;
       font-weight: 800;
       letter-spacing: -0.01em;
       margin-bottom: 0.3rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
     }
 
-    .voyage-sub {
-      font-size: 0.88rem;
-      color: #dbeaf3;
-      max-width: 580px;
-      margin: 0 auto;
+    .hero-route {
+      font-size: 0.9rem;
+      color: #e0f2fe;
+      font-weight: 500;
+      margin-bottom: 0.95rem;
     }
 
-    .schedule-strip {
+    .rhythm-pills {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.38rem;
-      margin-top: 0.95rem;
+      gap: 0.4rem;
     }
 
-    .schedule-chip {
-      background: rgba(9, 30, 54, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 8px;
-      padding: 0.24rem 0.55rem;
+    .rhythm-pill {
+      background: rgba(4, 31, 51, 0.48);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
       font-size: 0.72rem;
-      color: #f8fafc;
+      font-weight: 600;
+      color: #ffffff;
     }
 
     .wrap {
       width: 100%;
-      max-width: 840px;
-      margin: -1.45rem auto 0;
-      padding: 0 0.75rem;
+      max-width: 860px;
+      margin: -1.1rem auto 0;
+      padding: 0 0.8rem;
+      position: relative;
+      z-index: 2;
     }
 
+    /* Boarding-Pass Day Selector */
     .deck-tabs {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 0.3rem;
-      gap: 0.2rem;
-      box-shadow: 0 6px 16px rgba(9, 30, 54, 0.1);
-      margin-bottom: 1.05rem;
+      border: 1px solid #dbeafe;
+      border-radius: 16px;
+      padding: 0.35rem;
+      gap: 0.25rem;
+      box-shadow: 0 10px 25px rgba(6, 40, 61, 0.1);
+      margin-bottom: 1.15rem;
     }
 
     .deck-tab {
       text-align: center;
-      padding: 0.55rem 0.2rem;
-      border-radius: 8px;
-      font-size: 0.74rem;
+      padding: 0.58rem 0.2rem;
+      border-radius: 11px;
+      font-size: 0.75rem;
       font-weight: 700;
       color: var(--muted);
       cursor: pointer;
       user-select: none;
       line-height: 1.25;
-      transition: background 0.15s, color 0.15s;
+      transition: all 0.18s ease;
     }
 
     #dk-1:checked ~ .wrap .deck-tabs label[for="dk-1"],
@@ -135,9 +163,9 @@
     #dk-3:checked ~ .wrap .deck-tabs label[for="dk-3"],
     #dk-4:checked ~ .wrap .deck-tabs label[for="dk-4"],
     #dk-5:checked ~ .wrap .deck-tabs label[for="dk-5"] {
-      background: var(--hull);
+      background: linear-gradient(135deg, var(--lagoon) 0%, var(--deep-ocean) 100%);
       color: #ffffff;
-      box-shadow: inset 0 -2px 0 var(--brass);
+      box-shadow: 0 4px 10px rgba(14, 116, 144, 0.3);
     }
 
     .deck-panel { display: none; }
@@ -147,141 +175,93 @@
     #dk-4:checked ~ .wrap #panel-4 { display: block; }
     #dk-5:checked ~ .wrap #panel-5 { display: block; }
 
-    .log-card {
+    /* Day Header Banner */
+    .day-banner {
       background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 1.05rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 3px 10px rgba(9, 30, 54, 0.05);
-    }
-
-    .log-head {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.05rem 1.15rem;
+      margin-bottom: 0.95rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      padding-bottom: 0.65rem;
-      margin-bottom: 0.9rem;
-      border-bottom: 2px solid var(--foam);
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(6, 40, 61, 0.04);
+      border-left: 5px solid var(--coral);
     }
 
-    .log-head h2 {
-      font-size: 1.08rem;
-      color: var(--hull);
+    .day-banner h2 {
+      font-size: 1.12rem;
+      color: var(--deep-ocean);
+      font-weight: 800;
     }
 
-    .port-pill {
-      background: var(--brass-light);
-      color: #7c530c;
-      border: 1px solid #e7cf9b;
-      font-size: 0.72rem;
+    .port-chip {
+      background: var(--coral-soft);
+      color: #c2410c;
+      border: 1px solid #fed7aa;
+      font-size: 0.74rem;
       font-weight: 700;
-      padding: 0.2rem 0.55rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 999px;
     }
 
-    .itinerary-block {
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      padding: 0.9rem;
-      margin-bottom: 0.85rem;
-      background: #fbfcfd;
+    /* Timeline Slot Cards */
+    .slot-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 1rem;
+      margin-bottom: 0.9rem;
+      box-shadow: 0 3px 10px rgba(6, 40, 61, 0.04);
     }
 
-    .itinerary-block.late-night {
-      background: #f8faff;
+    .slot-card.night-mode {
+      background: linear-gradient(180deg, #ffffff 0%, #f5f7ff 100%);
       border-color: #c7d2fe;
     }
 
-    .itinerary-block:last-child { margin-bottom: 0; }
+    .slot-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.25rem;
+    }
 
-    .time-stamp {
-      font-size: 0.75rem;
+    .time-badge {
+      font-size: 0.74rem;
       font-weight: 800;
       color: var(--lagoon);
+      background: #ecfeff;
+      border: 1px solid #cffafe;
+      padding: 0.16rem 0.55rem;
+      border-radius: 6px;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.2rem;
+      letter-spacing: 0.03em;
     }
 
-    .late-night .time-stamp {
+    .night-mode .time-badge {
       color: #3730a3;
+      background: var(--twilight-bg);
+      border-color: #c7d2fe;
     }
 
-    .block-title {
-      font-size: 0.96rem;
+    .slot-heading {
+      font-size: 0.98rem;
       font-weight: 700;
-      color: var(--hull);
-      margin-bottom: 0.45rem;
+      color: var(--deep-ocean);
+      margin-bottom: 0.55rem;
     }
 
     .choice-stack {
       display: flex;
       flex-direction: column;
       gap: 0.42rem;
-      margin: 0.55rem 0 0.7rem;
+      margin-bottom: 0.7rem;
     }
 
     .choice-btn {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      padding: 0.58rem 0.8rem;
-      border-radius: 9px;
-      border: 1.5px solid #c6d5e3;
-      background: #ffffff;
-      color: var(--ink);
-      font-size: 0.84rem;
-      font-weight: 600;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .choice-btn::after {
-      content: "Option";
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--muted);
-      background: var(--foam);
-      padding: 0.14rem 0.45rem;
-      border-radius: 5px;
-      margin-left: 0.5rem;
-      flex-shrink: 0;
-    }
-
-    .choice-detail {
-      display: none;
-      background: var(--foam);
-      border: 1px solid #c9dfec;
-      border-left: 4px solid var(--sea);
-      border-radius: 8px;
-      padding: 0.82rem 0.92rem;
-      font-size: 0.85rem;
-      color: var(--ink);
-    }
-
-    .choice-detail ul {
-      padding-left: 1.15rem;
-      margin-top: 0.35rem;
-    }
-
-    .choice-detail li {
-      margin-bottom: 0.28rem;
-    }
-
-    /* Active button styling for all 14 3-option slots */
-    #s1-1:checked ~ .choice-stack label[for="s1-1"],
-    #s1-2:checked ~ .choice-stack label[for="s1-2"],
-    #s1-3:checked ~ .choice-stack label[for="s1-3"],
-    #s2a-1:checked ~ .choice-stack label[for="s2a-1"],
-    #s2a-2:checked ~ .choice-stack label[for="s2a-2"],
-    #s2a-3:checked ~ .choice-stack label[for="s2a-3"],
-    #s2b-1:checked ~ .choice-stack label[for="s2b-1"],
-    #s2b-2:checked ~ .choice-stack label[for="s2b-2"],
-    #s2b-3:checked ~ .choice-stack label[for="s2b-3"],
-    #s2c-1:checked ~ .choice-stack label[for="s2c-1"],
-    #s2c-2:checked
+      align-
